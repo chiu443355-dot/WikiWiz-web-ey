@@ -1,17 +1,25 @@
 export function WikiWizLogo() {
   return (
-    <div className="flex items-center gap-2">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Gold W shape */}
+    <div className="flex items-center gap-1">
+      {/* Gold W Icon */}
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Stylized W in gold */}
         <path
-          d="M4 2 L8 28 L12 12 L16 28 L20 12 L24 28 L28 2 L24 8 L20 2 L16 12 L12 2 L8 8 Z"
-          fill="currentColor"
+          d="M3 4 L6 20 L9 10 L12 20 L15 8 L18 20 L21 4"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           className="text-primary"
         />
-        {/* Decorative circle */}
-        <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="1.5" fill="none" className="text-primary/40" />
+        {/* Bottom accent */}
+        <line x1="3" y1="24" x2="21" y2="24" stroke="currentColor" strokeWidth="1.5" className="text-primary" />
       </svg>
-      <span className="font-serif font-bold text-xl text-primary">WikiWiz</span>
+      {/* WikiWiz Text */}
+      <div className="flex flex-col -space-y-1">
+        <span className="font-serif font-bold text-base text-primary leading-none">WikiWiz</span>
+        <span className="text-xs font-medium text-primary/70 tracking-wide">GEETA</span>
+      </div>
     </div>
   );
 }

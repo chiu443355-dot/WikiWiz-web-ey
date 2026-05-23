@@ -7,15 +7,22 @@ export function useTranslation() {
   const { language } = useLanguage();
 
   const t = (key: string): string => {
-    const keys = key.split('.');
-    let value: any = translations[language];
+    // Get translations for current language
+    const langTranslations = translations[language] as Record<string, string>;
+    const enTranslations = translations['en'] as Record<string, string>;
     
-    for (const k of keys) {
-      value = value?.[k];
-      if (!value) return key; // Return key if not found
+    // Try to get from current language first
+    if (langTranslations && langTranslations[key]) {
+      return langTranslations[key];
     }
     
-    return value || key;
+    // Fallback to English if not found in current language
+    if (language !== 'en' && enTranslations && enTranslations[key]) {
+      return enTranslations[key];
+    }
+    
+    // Return the key itself if not found
+    return key;
   };
 
   return { t, language };
