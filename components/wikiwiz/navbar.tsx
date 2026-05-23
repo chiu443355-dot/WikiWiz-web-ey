@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLanguage, LANGUAGES } from '@/lib/store/language';
 import { useTranslation } from '@/lib/hooks/use-translation';
+import { WikiWizLogo } from './logo';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
@@ -17,7 +18,7 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="text-2xl font-serif font-bold text-primary">WikiWiz</div>
+            <WikiWizLogo />
           </Link>
 
           {/* Nav Links */}

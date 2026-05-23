@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Script from 'next/script';
 import { Navbar } from '@/components/wikiwiz/navbar';
-import { useLanguage } from '@/lib/store/language';
 import { FearGreedMeter } from '@/components/wikiwiz/fear-greed-meter';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -16,7 +16,6 @@ const probabilityConeData = [
 ];
 
 export default function MLKLabPage() {
-  const { language } = useLanguage();
   const [showAnalysis, setShowAnalysis] = useState(false);
 
   return (
@@ -278,6 +277,71 @@ export default function MLKLabPage() {
                 </motion.div>
               </motion.div>
             )}
+
+            {/* Market Chart - TradingView Widget */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-lg border border-border bg-card p-6 space-y-4"
+            >
+              <h3 className="text-2xl font-serif font-bold text-foreground">Live Market Chart</h3>
+              <div className="w-full rounded-lg overflow-hidden bg-background/50">
+                <Script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" />
+                <div
+                  className="tradingview-widget-container"
+                  style={{ height: '500px' }}
+                >
+                  <div
+                    className="tradingview-widget-container__widget"
+                    style={{ height: 'calc(100% - 32px)' }}
+                  />
+                  <script
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                        new TradingView.widget({
+                          "width": "100%",
+                          "height": "500",
+                          "symbol": "NSE:NIFTY",
+                          "interval": "D",
+                          "timezone": "Asia/Kolkata",
+                          "theme": "dark",
+                          "style": "1",
+                          "locale": "en",
+                          "enable_publishing": false,
+                          "allow_symbol_change": true,
+                          "container_id": "tradingview_widget"
+                        });
+                      `,
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Economic Calendar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-lg border border-border bg-card p-6 space-y-4"
+            >
+              <h3 className="text-2xl font-serif font-bold text-foreground">Economic Calendar</h3>
+              <p className="text-muted-foreground text-sm">Track important economic events that impact markets</p>
+              <div className="w-full rounded-lg overflow-hidden bg-background/50">
+                <iframe
+                  src="https://sslecal2.investing.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,32,6,37,72,22,17,39,14,10,35,43,56,36,110,11,26,12,4,5&calType=week&timeZone=23&lang=1"
+                  style={{
+                    width: '100%',
+                    height: '360px',
+                    border: 'none',
+                  }}
+                  frameBorder="0"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
 
             {/* Disclaimer */}
             <motion.div
