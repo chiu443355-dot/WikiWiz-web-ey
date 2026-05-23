@@ -9,8 +9,8 @@ const crimson = Crimson_Pro({ subsets: ["latin"], variable: '--font-serif', weig
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: '--font-mono', weight: ['400', '600', '700'] });
 
 export const metadata: Metadata = {
-  title: 'WikiWiz - Financial Education with Wisdom',
-  description: 'Learn investing through Indian philosophy and financial wisdom. Master trading strategies with mindful, long-term wealth building.',
+  title: 'WikiWiz : Financial Geeta - Uncompromising Wisdom for the Modern Trader',
+  description: 'Master trading through Bhagavad Gita wisdom. Learn investment philosophy, technical analysis, and risk management with professional financial education.',
   generator: 'v0.app',
   icons: {
     icon: [
