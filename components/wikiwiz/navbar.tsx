@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useLanguage, LANGUAGES } from '@/lib/store/language';
 import { useTranslation } from '@/lib/hooks/use-translation';
-import { WikiWizLogo } from './logo';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 
@@ -17,8 +16,12 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <WikiWizLogo />
+          <Link href="/" className="flex items-center gap-2 group">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="15" stroke="#D4A853" strokeWidth="1.5"/>
+              <text x="16" y="21" textAnchor="middle" fill="#D4A853" fontSize="16" fontFamily="Crimson Pro, serif" fontWeight="700">W</text>
+            </svg>
+            <span className="text-2xl font-serif font-bold text-primary group-hover:opacity-80 transition">WikiWiz</span>
           </Link>
 
           {/* Nav Links */}
