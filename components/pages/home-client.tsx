@@ -3,9 +3,11 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Script from 'next/script';
 import { useTranslation } from '@/lib/hooks/use-translation';
 import { FearGreedMeter } from '@/components/wikiwiz/fear-greed-meter';
 import { PhaseCard } from '@/components/wikiwiz/phase-card';
+import { EconomicCalendar } from '@/components/wikiwiz/economic-calendar';
 import { phases } from '@/data/phases';
 
 function ClientOnly({ children }: { children: React.ReactNode }) {
@@ -85,13 +87,34 @@ export function HomePageClient() {
       {/* TradingView Ticker Tape */}
       <ClientOnly>
         <section className="px-4 py-6 sm:px-6 lg:px-8 bg-card/50 border-b border-border">
-          <div className="tradingview-widget-container">
+          <div className="tradingview-widget-container" suppressHydrationWarning>
             <div className="tradingview-widget-container__widget"></div>
-            <script
-              type="text/javascript"
+            <Script 
               src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+              strategy="lazyOnload"
               async
-            >{`{"symbols":[{"proName":"NSE:NIFTY50","title":"Nifty 50"},{"proName":"NSE:BANKNIFTY","title":"Bank Nifty"},{"proName":"FOREXCOM:XAUUSD","title":"Gold"},{"proName":"FX_IDC:USDINR","title":"USD/INR"},{"proName":"CRYPTO:BTCUSD","title":"Bitcoin"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}`}</script>
+            />
+            <Script
+              id="tradingview-config"
+              type="text/x-tradingview-widget"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  symbols: [
+                    { proName: 'NSE:NIFTY50', title: 'Nifty 50' },
+                    { proName: 'NSE:BANKNIFTY', title: 'Bank Nifty' },
+                    { proName: 'FOREXCOM:XAUUSD', title: 'Gold' },
+                    { proName: 'FX_IDC:USDINR', title: 'USD/INR' },
+                    { proName: 'CRYPTO:BTCUSD', title: 'Bitcoin' }
+                  ],
+                  showSymbolLogo: true,
+                  isTransparent: true,
+                  displayMode: 'adaptive',
+                  colorTheme: 'dark',
+                  locale: 'en'
+                })
+              }}
+            />
           </div>
         </section>
       </ClientOnly>
@@ -130,15 +153,27 @@ export function HomePageClient() {
         >
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-12 text-center">Live Market Analysis</h2>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <div id="tradingview_chart" style="height: 500px;"></div>
-                  <script src="https://s3.tradingview.com/tv.js"></script>
-                  <script>
-                    new TradingView.widget({"width":"100%","height":"500","symbol":"NSE:NIFTY50","interval":"D","timezone":"Asia/Kolkata","theme":"dark","style":"1","locale":"en","toolbar_bg":"#0A0A0F","enable_publishing":false,"allow_symbol_change":true,"container_id":"tradingview_chart"});
-                  </script>
-                `,
+            <div id="tradingview_widget" style={{ height: '500px', width: '100%' }} />
+            <Script 
+              src="https://s3.tradingview.com/tv.js"
+              strategy="afterInteractive"
+              onLoad={() => {
+                if ((window as any).TradingView) {
+                  new (window as any).TradingView.widget({
+                    width: "100%",
+                    height: 500,
+                    symbol: "NSE:NIFTY50",
+                    interval: "D",
+                    timezone: "Asia/Kolkata",
+                    theme: "dark",
+                    style: "1",
+                    locale: "en",
+                    toolbar_bg: "#0A0A0F",
+                    enable_publishing: false,
+                    allow_symbol_change: true,
+                    container_id: "tradingview_widget"
+                  });
+                }
               }}
             />
           </div>
@@ -181,27 +216,7 @@ export function HomePageClient() {
       </motion.section>
 
       {/* Economic Calendar Section */}
-      <ClientOnly>
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="px-4 py-20 sm:px-6 lg:px-8 border-t border-border"
-        >
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-12 text-center">Economic Calendar</h2>
-            <div className="w-full">
-              <iframe
-                src="https://sslecal2.investing.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,32,6,37,72,22,17,39,14,10,35,43,56,36,110,11,26,12,4,5&calType=week&timeZone=23&lang=1"
-                width="100%"
-                height="467"
-                style={{ border: 'none' }}
-              ></iframe>
-            </div>
-          </div>
-        </motion.section>
-      </ClientOnly>
+      <EconomicCalendar />
 
       {/* CTA Section */}
       <motion.section
