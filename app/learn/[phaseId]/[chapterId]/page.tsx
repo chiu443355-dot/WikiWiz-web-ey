@@ -3,11 +3,14 @@
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/wikiwiz/navbar';
 import { LessonRenderer } from '@/components/wikiwiz/lesson-renderer';
+import { ChapterQuiz } from '@/components/wikiwiz/chapter-quiz';
 import { chapters } from '@/data/chapters';
 import { phases } from '@/data/phases';
+import { getChapterQuiz } from '@/data/chapter-quizzes';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import { useState } from 'react';
 
 interface PageProps {
   params: Promise<{
@@ -16,10 +19,11 @@ interface PageProps {
   }>;
 }
 
-export default async function ChapterPage({ params }: PageProps) {
-  const { phaseId, chapterId } = await params;
+function ChapterContent({ phaseId, chapterId }: { phaseId: string; chapterId: string }) {
+  const [showQuiz, setShowQuiz] = useState(false);
   const chapter = chapters.find((c) => c.id === chapterId && c.phaseId === phaseId);
   const phase = phases.find((p) => p.id === phaseId);
+  const quiz = getChapterQuiz(chapterId);
 
   if (!chapter || !phase) {
     notFound();
@@ -101,9 +105,47 @@ export default async function ChapterPage({ params }: PageProps) {
             </div>
 
             {/* Lesson Content */}
-            <div className="prose prose-invert max-w-none mb-12">
-              <LessonRenderer content={chapter.script} />
-            </div>
+            {!showQuiz ? (
+              <div className="prose prose-invert max-w-none mb-12">
+                <LessonRenderer content={chapter.script} />
+              </div>
+            ) : null}
+
+            {/* Quiz Section */}
+            {showQuiz && quiz ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-12 p-8 rounded-lg border border-primary/30 bg-primary/5"
+              >
+                <h3 className="text-2xl font-serif font-bold text-foreground mb-8 flex items-center gap-2">
+                  <BookOpen size={24} />
+                  Test Your Knowledge
+                </h3>
+                <ChapterQuiz 
+                  chapterId={chapterId}
+                  questions={quiz}
+                  onComplete={() => setShowQuiz(false)}
+                />
+              </motion.div>
+            ) : null}
+
+            {/* Quiz Toggle Button */}
+            {!showQuiz && quiz && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mb-12 p-4 rounded-lg border border-primary/30 bg-primary/5 text-center"
+              >
+                <button
+                  onClick={() => setShowQuiz(true)}
+                  className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition inline-flex items-center gap-2"
+                >
+                  <BookOpen size={18} />
+                  Take Chapter Quiz ({quiz.length} questions)
+                </button>
+              </motion.div>
+            )}
 
             {/* Navigation */}
             <div className="flex flex-col sm:flex-row gap-4 mt-16 pt-8 border-t border-border">
@@ -198,4 +240,9 @@ export default async function ChapterPage({ params }: PageProps) {
       </main>
     </>
   );
+}
+
+export default async function ChapterPage({ params }: PageProps) {
+  const { phaseId, chapterId } = await params;
+  return <ChapterContent phaseId={phaseId} chapterId={chapterId} />;
 }
