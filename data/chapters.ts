@@ -13,412 +13,1033 @@ export interface Chapter {
 }
 
 export const chapters: Chapter[] = [
+  // PHASE 0: FINANCIAL LITERACY
   {
     id: 'ch-0-0',
     phaseId: 'phase-0',
     number: 0,
     title: 'What is Money?',
-    script: `## What is Money? Understanding the Foundation of Wealth
+    script: `## What is Money? The Foundation of All Trading
 
-Let me start with a simple question: What is money, really? 
+Money isn't wealth—it's a *claim* on wealth. Most traders lose because they confuse the two.
 
-Most people think of it as the paper in their wallets or the numbers in their bank accounts. But that's surface-level thinking. Money is something far more powerful—it's crystallized effort. It's the physical representation of value that you or someone else has created. When you earn ₹1000, you're not just getting numbers; you're getting the right to claim ₹1000 worth of goods or services that the world has to offer.
+### The Three Faces of Money
 
-Think about it this way: Go back 200 years. There was no currency like we know it. People bartered—a farmer would trade rice with a tailor for a shirt. But imagine the complexity: What if the farmer had rice, but the tailor didn't need rice that day? What if the tailor wanted cloth in exchange, but the farmer had no cloth? This system worked for small communities, but it couldn't scale. Money solved that problem by becoming something everyone agreed had value.
+**Money as Medium of Exchange**: Before money, bartering meant finding someone who had what you wanted *and* wanted what you had. Impossible at scale. Money solved this friction. Every successful economy rests on this agreement.
 
-### The Three Critical Functions Every Trader Must Understand
+**Money as Store of Value**: Here's where inflation destroys your wealth without you noticing. If you earned ₹10 lakhs and kept it in cash, after 10 years at 5% inflation, you'd have the buying power of only ₹6.14 lakhs. You lost ₹3.86 lakhs *without anyone stealing from you*.
 
-**1. Medium of Exchange**
-Money is the agreed-upon thing that everyone accepts. Whether you're in Mumbai, New York, or Tokyo, everyone understands the value of currency. This is powerful because it removes friction from trade. Instead of searching for someone who wants what you have and has what you want, you simply exchange your goods for money, and money for goods.
+**Money as Unit of Account**: It's the measuring stick. It lets you compare a coffee (₹150) with a stock (₹50,000) with a house (₹50 lakhs). Without this, no markets exist.
 
-**2. Store of Value**
-Here's where it gets interesting for investors. You work today, earn money, and you want to use that wealth later. Money lets you preserve your earning power across time. If you earned ₹50,000 last month, you can spend it this month or in five years—that money represents your past effort.
+### The Inflation Trap
 
-But—and this is crucial—money only stores value if things are stable. And things are rarely stable. This is why understanding inflation is non-negotiable for anyone serious about wealth.
+Prices don't just go up randomly. Your government prints money. More supply → less purchasing power per rupee. This is the silent tax nobody talks about.
 
-**3. Unit of Account**
-Money also acts as a measuring stick. Just like we measure distance in kilometers or weight in kilograms, we measure value in rupees, dollars, or euros. This standardization is what lets you compare the price of an apple with the price of a car, even though they're completely different things.
-
-### The Invisible Enemy: Inflation
-
-Now, here's what most people miss, and what separates wealthy people from poor people: Money loses value over time.
-
-In 1980, ₹100 could buy you a premium meal at a nice restaurant. In 2000, that same ₹100 might get you a decent meal at a mid-range place. Today? You're looking at a simple meal from a food stall.
-
-This isn't because money itself is getting worse. It's because inflation—the rate at which prices of goods and services increase—is constantly eating away at your money's purchasing power.
-
-Let me show you something that should scare you into action:
-
-If you save ₹10,00,000 today and keep it in cash, and inflation averages 5% per year, here's what happens:
-- After 5 years: That ₹10,00,000 has the purchasing power of only ₹7,84,000
-- After 10 years: It's down to ₹6,14,000
-- After 20 years: It's worth just ₹3,77,000
-
-You didn't lose any money in your account. The numbers still show ₹10,00,000. But you've lost ₹6,23,000 in actual purchasing power. You've become poorer without even realizing it.
-
-### This Is Where Most Investors Get It Wrong
-
-I talk to so many people who keep their savings in fixed deposits earning 3.5% annual interest, feeling safe. But if inflation is running at 5%, they're actually losing 1.5% of their purchasing power every single year.
-
-This is the fundamental mistake that keeps ordinary people ordinary: They don't account for inflation. They look at the number in their account growing by a few percentage points and feel secure. Meanwhile, their actual wealth is shrinking.
-
-The formula is simple:
-**Real Return = Nominal Return - Inflation Rate**
-
-If you're earning 4% on your savings but inflation is 5%, your real return is -1%. You're going backward.
-
-### The Investor's Fundamental Challenge
-
-This is why investing exists. This is why trading exists. Your job is simple but requires discipline:
-
-Find assets that grow faster than inflation. That's not optional—it's a mathematical necessity if you want to preserve and build wealth.
-
-Money is just a tool. Like any tool, it can be used skillfully or clumsily. Understanding that money must work for you, not just sit idle, is the first step toward financial independence.
-
-### The Key Principle
-
-Money has three uses: exchange, storage, and measurement. But the third one—storage—only works if you're actively growing your money faster than inflation. Anything less is losing value. This lesson is everything.`,
-    gitaShloka: {
-      sanskrit: 'धनं धान्यमवासे या: सुखदुःखहेतु: सर्वे:।',
-      transliteration: 'Dhanam dhanya mavashe ya: sukha dukkha hetuh sarve:',
-      meaning: 'Understanding that wealth is neutral; its moral character comes from how we use it.',
-      tradingApplication: 'Money should be viewed as a tool for long-term wealth creation, not as an end in itself.',
-    },
-  },
-  {
-    id: 'ch-3-0',
-    phaseId: 'phase-3',
-    number: 0,
-    title: 'Market Cycles',
-    script: `## The Market Cycle: The Heartbeat of Trading
-
-Listen, I want to teach you something that will change how you see the markets forever. The markets don't move randomly. They have a rhythm, a pattern, almost like the heartbeat of the economic system. Once you understand this pattern, you stop being a victim of market swings and become someone who can profit from them.
-
-Markets move in cycles. Always have, always will. And these cycles follow a predictable pattern—not the exact prices, but the psychology and the structure. That's what separates professionals from amateurs.
-
-### The Four Unmistakable Phases Every Trader Must Recognize
-
-**Phase 1: The Capitulation Phase (Accumulation)**
-The market has crashed hard. The news is terrible. Stock prices are in the basement. Your friends have lost money. Your parents are telling you to stay away from stocks. Social media is full of doom and gloom.
-
-And here's the beautiful part: This is exactly when the smart money is quietly buying. When everyone is terrified, when pessimism is at maximum, that's when the biggest wealth transfers happen. The smart investor—the disciplined one who has a plan—buys when others are selling in panic.
-
-Notice what's happening to retail investors (that's us, most of the time): We're standing on the sidelines, waiting for the news to improve. We're waiting for safety signals that never come until it's too late.
-
-**Phase 2: The Recovery Phase (Rising Market)**
-Over the course of weeks and months, good news starts trickling in. Nothing earth-shattering at first—maybe earnings beat estimates, or unemployment falls slightly. But news gradually shifts from negative to neutral to positive.
-
-And something magical happens in human psychology: Once people start seeing positive news, they start feeling hopeful again. And you know what happens when there's hope? People start investing again. Slowly at first, then with increasing conviction.
-
-The professionals who bought during Phase 1 are now smiling. The media is starting to talk positively about stocks. More retail money starts entering—but we're still cautious, waiting for even more confirmation.
-
-**Phase 3: The Euphoria Phase (Distribution)**
-Now we're in the fun part. The market has gone up substantially. People are making money—real money. Your barber is giving you stock tips. Your Uber driver is telling you about his portfolio. LinkedIn is full of people posting their gains.
-
-There's FOMO everywhere—Fear Of Missing Out. People who didn't invest in Phase 1 or 2 are now desperately trying to jump in. "Everyone's making money," they say. "If I don't invest now, I'll miss out."
-
-And here's what's happening behind the scenes that most people don't see: The smart money—the same people who bought when everyone was fearful—are now quietly exiting. They're taking profits. They're reducing positions. Because they understand Phase 4 is coming.
-
-But euphoria blinds people. No one wants to believe the party will end. Analysts keep predicting new all-time highs. Everyone feels invincible.
-
-**Phase 4: The Reality Check (Decline)**
-And then it happens. Something shifts. Maybe it's rising interest rates, maybe it's inflation, maybe it's earnings disappointments, or maybe there's a geopolitical crisis. The reason doesn't really matter.
-
-What matters is the psychology flip: Optimism turns to doubt. Doubt turns to fear. Fear turns to panic. People who bought at the peak—in Phase 3—suddenly realize they made a mistake. They start selling to cut losses. As more people sell, prices fall faster, panic spreads, and we're back to Phase 1.
-
-The cycle completes. And then it begins again.
-
-### A Real-World Example That Changed History
-
-Let me tell you about the tech bubble of 1999-2000 because it shows this pattern perfectly.
-
-**1999 (Phase 2-3): The Euphoria**
-Internet companies were the future. Why? Nobody quite knew, but everyone believed it. Companies with zero profits but a ".com" in their name were valued at billions. People quit their jobs to start internet companies. Stock prices were doubling and tripling in months. A 50-100% annual return wasn't unusual—it was expected.
-
-**2000-2001 (Phase 4): The Reality**
-Then it crashed. Tech stocks fell 70-80% in value. The Nasdaq lost trillions in value. Investors who bought at the peak lost everything. Many didn't recover their losses for 15+ years.
-
-But here's the painful twist that most people miss: Investors who bought in 2001-2002 when EVERYONE was terrified, when tech was a four-letter word—those investors made millions. The same companies that peaked at insane valuations and crashed 80% became incredible investments at 85% discounts.
-
-This is not a coincidence. This is the inevitable structure of market cycles.
-
-### The Trader's Golden Rule: Acting Against Your Emotions
-
-This is where most people fail. Because the best time to invest is when it feels the worst. And the worst time to invest is when it feels the best.
-
-In Phase 1—when you're terrified, when your relatives are warning you, when you feel it's dangerous—that's exactly when it's safest. This feels counterintuitive because it is.
-
-In Phase 3—when everyone's making money, when it feels safe, when FOMO is high—that's exactly when it's most dangerous. But it feels safe because everyone's winning.
-
-This is why the Bhagavad Gita teaches about equanimity—maintaining the same mindset in joy and in sorrow. The trader who can stay calm when others panic, and cautious when others are euphoric, is the trader who wins.
-
-### The Practical Strategy That Works
-
-1. **In Phase 1 (Capitulation):** This is buying time. If you have dry powder, deploy it. Even if it goes down further, you're building positions at bargain prices. Your average cost will be favorable over the long run.
-
-2. **In Phase 2 (Recovery):** You're holding your positions and possibly adding if you see confirmation. This phase can last years. You're letting your winners run.
-
-3. **In Phase 3 (Euphoria):** This is the time to trim positions. Take profits on your biggest winners. Move to cash. Build a shopping list of what you'll buy in the next Phase 1. Don't try to catch every rupee on the way up—remember, "timing the market is impossible, but time in the market is powerful."
-
-4. **In Phase 4 (Decline):** You're holding cash, watching, and being patient. The panic will end. Phase 1 will come again.
-
-### The Hardest Lesson
-
-The hardest thing about understanding market cycles is that you'll be right about the pattern, but wrong about the timing. You might recognize that we're in euphoria and decide to sell, only to watch the market go up another 20% before it finally crashes 40%.
-
-This is why discipline beats prediction. You can't predict the exact price or exact timing, but you can recognize the phase and adjust your risk accordingly.
+Protect yourself: Assets that produce *real* returns (equities, property, businesses) beat inflation. Cash and savings accounts lose every single year.
 
 ### Key Takeaway
 
-Market cycles are as reliable as the seasons. The only variable is the duration and magnitude. Those who profit aren't lucky—they're disciplined. They follow their plan whether they feel scared or greedy. That's the secret.`,
+Money is leverage on human productivity. Understand it or be controlled by it.`,
     gitaShloka: {
-      sanskrit: 'मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदु:खदा:।',
-      transliteration: 'Matrasparshaste Kaunteya Shitoshna Sukha Dukkha Dah',
-      meaning: 'One must learn to endure the dualities of heat and cold, pleasure and pain without attachment.',
-      tradingApplication: 'Market ups and downs are like seasons. Accept them without emotional attachment.',
-    },
+      transliteration: 'Arjuna: Yada yoga-niyastam mano nusandadhati',
+      meaning: 'When the mind becomes disciplined and focused like channeled money',
+      tradingApplication: 'Just like money flows to where it is valued, your capital flows to where it generates returns. Discipline in capital allocation is the foundation.'
+    }
   },
+
   {
-    id: 'ch-4-0',
-    phaseId: 'phase-4',
-    number: 0,
-    title: 'Diversification Mastery',
-    script: `## The Art of Diversification
+    id: 'ch-0-1',
+    phaseId: 'phase-0',
+    number: 1,
+    title: 'The Power of Compounding',
+    script: `## Compound Interest: The 8th Wonder of the World
 
-"Don't put all eggs in one basket"—you've heard this a thousand times. But what does it really mean? And how do you actually do it?
+Einstein supposedly called compound interest the eighth wonder of the world. Let me show you why.
 
-Diversification is spreading risk. But not all diversification is equal. Spreading ₹100 across 100 bad stocks won't help. You need intelligent diversification.
+### The Math (Don't Skip This)
 
-### Types of Assets
+₹10,000 at 12% annual return:
+- Year 1: ₹11,200
+- Year 5: ₹17,623
+- Year 10: ₹31,058
+- Year 20: ₹96,463
+- Year 30: ₹299,599
 
-**Equities (Stocks):** High growth potential, high volatility
-**Bonds:** Lower returns, lower volatility, income generation
-**Real Estate:** Steady income, capital appreciation, illiquidity
-**Commodities:** Inflation hedge, independent from stocks
-**Cash/FDs:** Safety, liquidity, inflation erosion
+That's 30x growth. From disciplined, consistent returns.
 
-### The Correlation Puzzle
+Now the opposite: If you make 5% returns but pay 2% in fees and taxes (net 3%), you still get ₹24,273 in 30 years. That's 65% of the 12% case. Costs *destroy* compounding.
 
-Two assets are correlated if they move together. If Stock A and Stock B always move together, they're perfectly correlated. Owning both is like owning one with double the money.
+### Why This Matters for Traders
 
-True diversification means owning assets that DON'T move together:
-- Stocks and Bonds often move opposite (negative correlation)
-- Gold and Equities are often uncorrelated
-- Small-cap and Large-cap can move differently
+Most traders want to 10x overnight. Compounding teaches you something different: *Small, consistent edges beat large, inconsistent luck*.
 
-### Sample Portfolio Allocation
+A trader who makes 2% monthly with 95% win rate compounds to ₹1.05 crores in 10 years from ₹10 lakhs.
 
-**Conservative (60+ years old):** 30% Stocks, 50% Bonds, 10% Gold, 10% Cash
+A trader chasing 50% monthly returns but only wins 40% of the time? They're bankrupt by year 3.
 
-**Moderate (40-60 years):** 60% Stocks, 30% Bonds, 7% Gold, 3% Cash
+### The Time Factor
 
-**Aggressive (20-40 years):** 80% Stocks, 10% Bonds, 5% Gold, 5% Cash
+Compounding needs time. This is why:
+- Starting early is worth more than perfect timing
+- 20-year disciplined investing beats 5-year frantic trading
+- A 12% return over 30 years beats a 50% return over 2 years (if you survive)
 
-### Diversification Within Stocks
+### Common Mistake
 
-Don't just own multiple stocks; own different types:
-- **By size:** Large-cap (stable), Mid-cap (growth), Small-cap (high-growth, high-risk)
-- **By sector:** Tech, Healthcare, Finance, Consumer, Industrials
-- **By geography:** Domestic stocks, International stocks
-- **By style:** Value stocks (cheap, stable), Growth stocks (expensive, high-growth)
-
-### The Key Insight
-
-Diversification doesn't maximize returns; it minimizes the risk of catastrophic loss. Your goal isn't to beat everyone else. Your goal is to build wealth steadily while sleeping well at night.
+People think "compound returns" means they do nothing. False. It means *consistent* returns. One bad year (like -30%) eats 5 years of 20% gains.
 
 ### Key Takeaway
 
-Intelligent diversification is the closest thing to a "free lunch" in investing. It reduces risk without proportionally reducing returns.`,
+Compounding is not magic. It's arithmetic with time. Master small, repeatable trades. Let time do the work.`,
     gitaShloka: {
-      sanskrit: 'योगस्थ: कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय।',
-      transliteration: 'Yogasthah Kuru Karmani Sangam Tyaktvaa Dhananjaya',
-      meaning: 'Perform your duties without attachment, maintaining balance in all circumstances.',
-      tradingApplication: 'Build a balanced portfolio and maintain it without emotional attachment to individual holdings.',
-    },
+      transliteration: 'Yoga-sthah kuru karmani sangam tyaktva dhananjaya',
+      meaning: 'Perform your actions with discipline, free from attachment to results',
+      tradingApplication: 'Don\'t obsess over each trade\'s outcome. Focus on process. Compounding happens to those who execute the process consistently, not those chasing single profits.'
+    }
   },
+
   {
-    id: 'ch-5-0',
-    phaseId: 'phase-5',
-    number: 0,
-    title: 'Technical Analysis Basics',
-    script: `## Introduction to Technical Analysis
+    id: 'ch-0-2',
+    phaseId: 'phase-0',
+    number: 2,
+    title: 'Inflation: The Silent Tax',
+    script: `## Inflation: How Governments Steal Your Purchasing Power
 
-Technical analysis is the study of price and volume data to predict future price movements. It assumes that all available information is already reflected in price, and price movements follow patterns.
+Inflation is what happens when governments print more money than economic growth justifies.
 
-### Core Principle
+### The Real Return Formula
 
-If you can identify patterns that have repeated historically, you can anticipate future moves and position yourself accordingly.
+Real Return = Nominal Return - Inflation Rate
 
-### Main Chart Types
+Your FD gives 6% interest. Inflation is 5%. You made 1% real return.
+Your stock portfolio made 15%. Real return: 10%.
 
-**Candlestick Charts:** Most popular. Shows Open, High, Low, Close for each period. Bullish (green) candles close higher than they opened. Bearish (red) candles close lower.
+This is *the* framework for all investment decisions.
 
-**Line Charts:** Simple, shows only closing price. Good for beginners.
+### Historical Context
 
-**Bar Charts:** Similar to candlesticks but looks different. Less popular.
+1980: ₹100 = one good meal
+2000: ₹100 = decent street food
+2026: ₹100 = half a street meal
 
-### Support and Resistance
+That's not the quality changing. That's purchasing power dying.
 
-**Support:** A price level where buyers step in and prevent further decline.
+### How Inflation Destroys Debt
 
-**Resistance:** A price level where sellers step in and prevent further rise.
+If you borrowed ₹10 lakhs at 5% fixed rate, and inflation runs at 6%, the lender loses. They're repaid with money worth 1% less each year. This is why:
+- High inflation environments favor borrowers
+- Low inflation environments favor lenders
 
-Example: If a stock keeps bouncing up from ₹100 but keeps hitting ceiling at ₹110, then ₹100 is support and ₹110 is resistance.
+### Strategic Response
 
-### Moving Averages
-
-A moving average is the average closing price of the last N days. It smooths out daily noise and shows the trend.
-
-**20-day MA:** Short-term trend
-**50-day MA:** Medium-term trend
-**200-day MA:** Long-term trend
-
-When price is above these moving averages, it's in an uptrend. When below, downtrend.
-
-### Common Patterns
-
-**Trending:** Markets moving consistently up (uptrend) or down (downtrend).
-
-**Reversal patterns:** Suggest trend might reverse (Head and Shoulders, Double Top/Bottom).
-
-**Continuation patterns:** Suggest trend will continue (Triangles, Flags).
-
-### Important Caveat
-
-Technical analysis works best in trending markets. In sideways markets, it gives false signals. It's a tool, not a magic formula. Combine it with fundamentals and risk management.
+Against 5% inflation, you *must* generate >5% real returns:
+- Real estate (historically 7-9% real returns in India)
+- Equities (historically 10-12% real returns)
+- Bonds (lose if inflation rises)
+- Gold (preserves purchasing power, doesn't create it)
+- Cash (loses every year)
 
 ### Key Takeaway
 
-Technical analysis helps you identify when to enter and exit positions. But it won't tell you which stocks to own long-term.`,
+Doing nothing is guaranteed loss. Inflation forces you to invest. The question is: where will you get real returns?`,
     gitaShloka: {
-      sanskrit: 'दूरस्था: सूक्ष्मरूपा: अव्यक्तमव्यक्तसंज्ञिता:।',
-      transliteration: 'Durasthah Sukshma Rupa Avyaktam Vyakta Samjnita',
-      meaning: 'The subtle and invisible aspects are harder to perceive but more important than the obvious.',
-      tradingApplication: 'Technical patterns are subtle indicators; combine them with other analysis for better decisions.',
-    },
+      transliteration: 'Na hi kalyana-krt kascid durgatim tata gacchati',
+      meaning: 'Those who do good actions never fall into decline',
+      tradingApplication: 'Those who consistently seek real returns never decline into poverty. Passive holdings against inflation guarantees decline.'
+    }
   },
+
+  // PHASE 1: MARKET STRUCTURE
   {
     id: 'ch-1-0',
     phaseId: 'phase-1',
     number: 0,
-    title: 'The Power of Compounding',
-    script: `## The Power of Compounding
+    title: 'Market Microstructure 101',
+    script: `## How Markets Actually Work: Order Books, Spreads, Liquidity
 
-Albert Einstein called compounding the eighth wonder of the world. If you understand only one concept about investing, let it be this one.
+Most people think markets are just price discovery. They're wrong. Markets are *liquidity machines*.
 
-### What is Compounding?
+### The Order Book
 
-Compounding is when your earnings generate their own earnings. It's the process of earning returns not just on your initial investment, but also on all the accumulated earnings from previous years.
+Every market has a buy side (bids) and sell side (asks):
+- Bid: "I'll buy 100 shares at ₹500"
+- Ask: "I'll sell 100 shares at ₹501"
+- Spread: ₹1 difference = friction cost
 
-### The Magic Formula
+When you buy at market price, you're *hitting the ask*. When you sell, you're *hitting the bid*.
 
-Let's say you invest ₹10,000 at 12% annual returns.
+### Liquidity
 
-**Year 1:** ₹10,000 × 1.12 = ₹11,200
-**Year 2:** ₹11,200 × 1.12 = ₹12,544
-**Year 3:** ₹12,544 × 1.12 = ₹14,049
+Liquidity = how easily you can buy/sell large quantities without moving the price.
 
-Notice something? By Year 3, you're earning returns on returns. That extra ₹49 didn't come from your initial investment—it came from compounding.
+NIFTY50: Ultra-liquid. Trade 1 crore shares. Price barely moves.
+Small-cap stock: Buy ₹1 lakh. Price moves 2-3%.
 
-### The 70-Year Old vs The 25-Year Old
+Liquidity dries up in crashes. Price gaps down. People panic.
 
-Let's compare two investors:
+### Market Makers
 
-**Investor A (Age 25):** Invests ₹5,000 every month until age 60 (35 years). Total invested: ₹21,00,000
+These are the dealers keeping prices tight. They buy at bid, sell at ask, profit from the spread.
 
-**Investor B (Age 45):** Invests ₹10,000 every month until age 60 (15 years). Total invested: ₹18,00,000
+When market makers stop participating → spreads widen → it gets expensive to trade → prices gap.
 
-Assuming 12% annual returns, Investor A ends up with ₹3,50,00,000 while Investor B ends up with ₹54,00,000.
+This is what happens in crashes.
 
-Investor A invested MORE money but because they started earlier, they EARNED WAY MORE from compounding. Time is more powerful than money!
+### The Bid-Ask Bounce
 
-### The Two Variables You Control
-
-1. **How much to invest** - The amount matters, but
-2. **How long to invest** - Time matters even more
-
-A small amount invested early beats a large amount invested late. This is why starting your investment journey at 25 is infinitely better than starting at 45.
-
-### The Three Enemies of Compounding
-
-1. **Withdrawals** - Taking money out breaks the compounding chain
-2. **Inflation** - Erodes the real purchasing power of your returns
-3. **Taxes** - Reduce the amount available for reinvestment
+If you buy at ₹100 ask and immediately sell at ₹99 bid, you lost ₹1 to the spread. This happens millions of times. High-frequency traders profit from this friction.
 
 ### Key Takeaway
 
-Start investing today, even if it's a small amount. The earlier you start, the more time your money has to compound. This single decision can make the difference between a comfortable retirement and a struggling one.`,
+Markets are not efficient at all price points. Inefficiencies exist at scale boundaries and in micro-structures. Exploit friction, don't fight it.`,
     gitaShloka: {
-      transliteration: 'Consistency and patience are the hallmarks of a wise investor.',
-      meaning: 'The importance of discipline and long-term thinking in wealth building.',
-      tradingApplication: 'Regular, consistent investments over long periods create wealth through compounding, not through trying to time the market.',
-    },
+      transliteration: 'Sthita-prajnasya ka bhasa samadhi-sthasyabhashate',
+      meaning: 'One established in steady-state perception speaks consistently',
+      tradingApplication: 'Understand market microstructure deeply and you speak with authority. Surface-level traders misunderstand basic price mechanics.'
+    }
   },
+
+  {
+    id: 'ch-1-1',
+    phaseId: 'phase-1',
+    number: 1,
+    title: 'Supply and Demand: The Only Law',
+    script: `## Supply and Demand: Every Price Movement Explained
+
+There is exactly one reason prices move: supply and demand imbalance.
+
+### The Supply-Demand Axis
+
+More buyers than sellers → price rises
+More sellers than buyers → price falls
+
+That's it. All technical analysis, fundamental analysis, news—they all feed into this one mechanism.
+
+### What Creates Imbalance?
+
+**News**: Positive news → more buyers
+**Earnings**: Good earnings → more buyers
+**Macro**: Rising rates → fewer buyers
+**Sentiment**: Fear → more sellers
+**Technicals**: Support breaks → triggered selling
+
+But the *mechanism* is always supply-demand.
+
+### Understanding Depth
+
+When you see a ₹100 stock:
+- 50 lakh shares offered at ₹100
+- 20 lakh shares offered at ₹101
+
+You need to buy the 50 lakhs at ₹100 *and* the 20 lakhs at ₹101 to reach ₹102.
+
+Thin depth = big moves from small orders.
+Thick depth = prices stable.
+
+### Market Cycles Through Supply-Demand
+
+Accumulation: Quiet buying, supply doesn't react
+Mark-up: Buying accelerates, price rises
+Distribution: Sellers appear, buyers still present (sideways)
+Mark-down: Sellers accelerate, few buyers (crash)
+
+And repeat.
+
+### Key Takeaway
+
+Stop analyzing charts. Start asking: Who's buying? Who's selling? Why? At what price do they disappear?`,
+    gitaShloka: {
+      transliteration: 'Annam bhuvanasya pratistham',
+      meaning: 'Food is the foundation of the world',
+      tradingApplication: 'Demand for goods (real or financial) is the foundation of price. Without real demand, price collapses. Trade what people actually want.'
+    }
+  },
+
+  // PHASE 2: TECHNICAL ANALYSIS
   {
     id: 'ch-2-0',
     phaseId: 'phase-2',
     number: 0,
-    title: 'Risk and Reward',
-    script: `## Understanding Risk and Reward
+    title: 'Candlesticks: Reading Price Intention',
+    script: `## Candlestick Patterns: What Price is Actually Telling You
 
-One of the first laws of investing: higher returns come with higher risk. There is no free lunch in the market. Every rupee of additional return you seek must be paired with acceptance of additional risk.
+A candlestick shows: open, close, high, low. It's the *conversation* between buyers and sellers.
 
-### What is Risk?
+### What Each Element Means
 
-Risk is the chance that your investment will lose value. But not all risks are the same.
+Open: Where trading started
+Close: Where it ended
+High: Maximum buyer conviction
+Low: Maximum seller pressure
 
-**Market Risk:** The risk that the entire market goes down (stocks, bonds, commodities)
+A big green candle: Buyers won decisively. Price is up.
+A big red candle: Sellers won decisively. Price is down.
+A small body with long wicks: Buyers and sellers fought, nobody won.
 
-**Company Risk:** The risk that a specific company performs poorly due to bad management or industry disruption
+### Key Patterns
 
-**Liquidity Risk:** The risk that you can't sell your investment quickly without losing value
+**Doji**: Open = Close. Indecision. Could go either way.
+**Hammer**: Low wick, small body. Sellers tried to crush price, buyers defended.
+**Shooting Star**: High wick, small body. Buyers tried to run price up, sellers crushed it.
 
-**Inflation Risk:** The risk that inflation eats into your returns
+These patterns *suggest* what might happen next. They don't guarantee it.
 
-**Interest Rate Risk:** The risk that changing interest rates affect bond values
+### The Core Principle
 
-### The Risk-Return Spectrum
+Price rejects certain levels. If a stock bounces at ₹100 for 6 months straight, it's because there's structural support (buyers waiting).
 
-Think of investments on a spectrum:
+When price finally breaks below ₹100, it means support broke. Expect downside.
 
-**Lowest Risk:** Government Bonds (FDs, Government Securities) → Returns: 4-6%
+### Why This Matters
 
-**Low-Medium Risk:** Blue-chip stocks, ETFs → Returns: 10-15%
-
-**Medium Risk:** Mid-cap stocks → Returns: 15-20%
-
-**High Risk:** Small-cap stocks, speculative trading → Returns: 20%+ (or significant losses)
-
-**Highest Risk:** Options, leveraged trading → Returns: Unlimited, but losses can exceed investment
-
-Notice the pattern? As risk increases, potential returns increase. As risk decreases, returns decrease.
-
-### Measuring Your Risk Tolerance
-
-Risk tolerance is NOT how much risk you CAN take. It's how much risk you CAN HANDLE EMOTIONALLY.
-
-Ask yourself:
-- If your ₹10 lakh investment drops to ₹7 lakhs in 6 months, will you panic sell?
-- Can you stay invested during a market crash for 5+ years?
-- Do you need this money in the next 2 years?
-
-Your answers determine your actual risk tolerance, not your age or income.
-
-### The Risk-Reward Ratio
-
-In trading, this is critical: For every ₹1 you risk, how much can you potentially gain?
-
-A 1:2 risk-reward ratio means if you risk ₹100, you're trying to gain ₹200. This is a healthy ratio.
-
-A 1:0.5 ratio means you risk ₹100 to gain ₹50. Even if you win 70% of the time, you'll still lose money!
+Candlestick reading isn't magic. It's understanding where institutional buyers and sellers sit.
 
 ### Key Takeaway
 
-There's no such thing as risk-free returns. Accept the risk appropriate for your situation, diversify to reduce unnecessary risk, and measure your risk-reward ratios carefully.`,
+Candlesticks tell you where consensus is. Trade with consensus, not against it—at least until you have skill.`,
     gitaShloka: {
-      transliteration: 'A wise person knows the risk they are taking and acts accordingly.',
-      meaning: 'Informed decision-making requires understanding the consequences of your actions.',
-      tradingApplication: 'Successful investing requires conscious acceptance and management of risk, not reckless gambling.',
-    },
+      transliteration: 'Chitram gatayoh paśyati',
+      meaning: 'See clearly the path that unfolds',
+      tradingApplication: 'Candlesticks are clear signals if you read them honestly. Don\'t impose your bias. What is price *really* saying?'
+    }
   },
+
+  {
+    id: 'ch-2-1',
+    phaseId: 'phase-2',
+    number: 1,
+    title: 'Support, Resistance, and Levels',
+    script: `## Support and Resistance: Where Price Really Cares
+
+A support level is where price bounces up. A resistance level is where price bounces down.
+
+Why do these exist?
+
+### The Psychology Layer
+
+₹100 = many people set buy orders here (support)
+₹110 = many people set sell orders here (resistance)
+
+When price approaches these levels, those people get triggered. Their orders move price.
+
+### How to Find Real Levels
+
+Not every high and low is a level. Only *repeated* highs and lows matter.
+
+If ₹100 is the high 10 times in a year, it's *structural* resistance. Real money defends it.
+
+If a stock makes new highs every quarter, old resistance doesn't matter.
+
+### Breakout vs. Breakdown
+
+When price breaks above resistance with volume, it's real. Expect new highs.
+
+When price breaks below support quietly (low volume), it might bounce back.
+
+Volume tells you if the break is real.
+
+### Confluence
+
+When support coincides with a moving average *and* a Fibonacci level—that's confluence. Price cares more about that level.
+
+### Key Takeaway
+
+Support and resistance aren't magical lines. They're where institutional orders cluster. When a level breaks with volume, expect fast moves. Without volume, it's noise.`,
+    gitaShloka: {
+      transliteration: 'Yatha pradipah sthiro bhasurate',
+      meaning: 'Like a steady lamp, true support shines through',
+      tradingApplication: 'Real support levels are steady and repeated. Levels that break easily are false. Test levels with volume to know which are real.'
+    }
+  },
+
+  // PHASE 3: RISK MANAGEMENT
+  {
+    id: 'ch-3-0',
+    phaseId: 'phase-3',
+    number: 0,
+    title: 'Position Sizing and the Kelly Criterion',
+    script: `## The Math Behind "Bet Sizing"
+
+Most traders blow accounts because they risk too much per trade. There's a mathematical formula for this.
+
+### The Kelly Criterion
+
+Optimal Risk = (Win Rate × Avg Win) - (Loss Rate × Avg Loss)
+
+Example: You win 60% of trades, avg win ₹1000, avg loss ₹1500
+
+Kelly = (0.6 × 1) - (0.4 × 1.5) = 0.6 - 0.6 = 0%
+
+You should risk 0%. Your edge is zero. You'll break even long-term but commission kills you.
+
+### A Real Example
+
+Win 55% of trades
+Average win: ₹2000
+Average loss: ₹2000
+Win rate: 0.55
+Loss rate: 0.45
+
+Kelly = (0.55 × 2) - (0.45 × 2) = 1.1 - 0.9 = 0.2 (20%)
+
+You can risk up to 20% per trade and compound exponentially.
+
+Most traders risk 20%+ and blow accounts. They're overleveraged on insufficient edge.
+
+### The Practical Number
+
+Use 2-5% risk per trade if you're unsure. This survives drawdowns.
+
+If you find a 60%+ win rate system with 1.5:1 reward-risk, you can scale to 10%.
+
+### The Intuition
+
+Bettors with +5% edges break even. Bettors with +30% edges need proper sizing to win.
+
+Leverage is free money if you're right. It's bankruptcy if you're wrong.
+
+### Key Takeaway
+
+Your account doesn't die from one bad trade. It dies from overleveraging on insufficient edge. The math is simple. Follow it.`,
+    gitaShloka: {
+      transliteration: 'Hinsara tyaktvā sthānam mṛtyoḥ',
+      meaning: 'To abandon restraint is to invite destruction',
+      tradingApplication: 'To abandon position sizing discipline is to guarantee account destruction. The math doesn\'t lie. Follow Kelly or die eventually.'
+    }
+  },
+
+  {
+    id: 'ch-3-1',
+    phaseId: 'phase-3',
+    number: 1,
+    title: 'Stop Losses and Drawdown Management',
+    script: `## The Psychology of Taking Losses
+
+A ₹10 lakhs account down to ₹7 lakhs is a 30% drawdown. To recover, you need to make 43% returns.
+
+Most traders don't. They stop trading and "wait for confirmation." They never recover.
+
+### The Math of Drawdowns
+
+-50% needs +100% to recover
+-30% needs +43% to recover
+-10% needs +11% to recover
+
+Small drawdowns are recoverable. Large drawdowns become permanent.
+
+### Setting Stop Losses
+
+Stop loss = "I was wrong. I exit here."
+
+Too tight: Stopped out constantly, hit by noise
+Too loose: Drawdowns are catastrophic
+
+Professional traders use: 2 × Average True Range (ATR)
+
+For NIFTY50 with 20 point ATR: Stop is 40 points away.
+For small-cap with 2% daily move: Stop is 4% away.
+
+### Trailing Stops
+
+Once you're profitable (say +3%), move stop to breakeven. Let winners run.
+
+If trade keeps rising, keep moving stop up by half the gain.
+
+This locks in profits without capping upside.
+
+### The Discipline Requirement
+
+Taking a stop loss *feels* like failure. It's not. It's capital preservation.
+
+Your edge works over hundreds of trades. One trade doesn't matter. Surviving to the next trade matters.
+
+### Key Takeaway
+
+Stop losses are insurance. Insurance costs money in good years. But it prevents bankruptcy in bad years. That's the entire trade-off.`,
+    gitaShloka: {
+      transliteration: 'Tasmāt tvam uttistha yuddhasya',
+      meaning: 'Therefore, rise and fight with discipline',
+      tradingApplication: 'Discipline in taking losses is what separates survivors from casualties. The market will humiliate you if you don\'t enforce stops.'
+    }
+  },
+
+  // PHASE 4: TRADING PSYCHOLOGY
+  {
+    id: 'ch-4-0',
+    phaseId: 'phase-4',
+    number: 0,
+    title: 'Greed, Fear, and the Emotional Brain',
+    script: `## Why Smart People Make Stupid Trading Decisions
+
+Your lizard brain (amygdala) controls fear and greed. It evolved to survive predators, not markets.
+
+### The Fear Response
+
+Market down 20%: Your amygdala screams "SELL NOW OR DIE"
+
+This is the same brain system that kept your ancestors alive. It's *not* useful here.
+
+It forces you to:
+- Sell at bottoms (after downside)
+- Buy at tops (after upside)
+- Miss the biggest moves (when you're terrified)
+
+The best trading days happen right after the worst days. Most traders are out of the market, terrified.
+
+### The Greed Response
+
+Stock up 50% in 3 months: "This will go to ₹1000!"
+
+You add more. You leverage. You tell your family.
+
+Then reality hits. You're down 40% in 2 weeks. You panic. You exit at the lows.
+
+### How to Trade Against Your Brain
+
+1. **Automation**: Use stop losses and pre-set targets. Your emotional brain can't override them.
+2. **Small positions**: Your amygdala cares less about ₹10,000 than ₹10 lakhs.
+3. **Defined rules**: "I trade only when RSI < 30 AND price above 200 MA." Removes emotion.
+4. **Cold money**: Trade with money you can afford to lose. Scarcity mindset destroys returns.
+
+### The Institutional Advantage
+
+Institutional traders *feel* the same fear. But they follow rules. Their emotions don't move the market.
+
+Your emotions do. If you trade emotionally, institutions extract your money.
+
+### Key Takeaway
+
+You can't rewire your amygdala. But you can build systems that bypass it. Discipline beats sentiment, always.`,
+    gitaShloka: {
+      transliteration: 'Kama-krodha-vimuktānām',
+      meaning: 'Those freed from desire and anger',
+      tradingApplication: 'Trading without emotion—wanting specific outcomes—is the path to consistency. Markets punish the emotionally attached and reward the detached.'
+    }
+  },
+
+  {
+    id: 'ch-4-1',
+    phaseId: 'phase-4',
+    number: 1,
+    title: 'Building Your Trading System',
+    script: `## The Framework That Separates Winners From Gamblers
+
+Casual traders have hope. Professional traders have systems.
+
+### System Components
+
+1. **Entry Criteria**: When do you buy?
+   - Example: "Buy when RSI < 40 after 3-day squeeze"
+
+2. **Exit Criteria**: When do you sell?
+   - Example: "Sell when target is hit or stop is hit"
+
+3. **Risk Management**: How much do you risk?
+   - Example: "Never risk more than 2% per trade"
+
+4. **Trade Selection**: Which trades do you take?
+   - Example: "Only USD/INR, GOLD, NIFTY—high liquidity only"
+
+### Testing Your System
+
+Before you risk real money:
+1. Backtest on 5 years of data
+2. Check win rate and risk-reward ratio
+3. Calculate compound returns
+4. Check if system survives market crashes
+
+If backtest shows 40% win rate with 1.5:1 reward-risk, your edge is weak. Need refinement.
+
+If backtest shows 55% win rate with 2:1 reward-risk, you have a workable edge.
+
+### The Curve-Fitting Trap
+
+If you test 50 different systems and pick the best one, you're likely picking noise (overfitting).
+
+Use *new data* (forward testing) to validate. If it doesn't work on new data, it was luck.
+
+### Execution
+
+Write your system as rules *a child could understand*:
+- Don't use vague words like "strong" or "momentum"
+- Use specific numbers: "RSI > 50", "Price > MA200"
+
+### Key Takeaway
+
+Consistency comes from systems, not from intuition. Build a system, test it rigorously, then execute it mechanically.`,
+    gitaShloka: {
+      transliteration: 'Yoga-sthah kuru karmani',
+      meaning: 'Anchored in discipline, perform actions',
+      tradingApplication: 'A system is your anchor. When markets crash and emotions run high, your system keeps you rational. That\'s why systems beat intuition.'
+    }
+  },
+
+  // PHASE 5: FUNDAMENTAL ANALYSIS
+  {
+    id: 'ch-5-0',
+    phaseId: 'phase-5',
+    number: 0,
+    title: 'Reading Financial Statements',
+    script: `## The Three Numbers That Matter
+
+Most traders ignore fundamentals. Institutions don't. Learn to read a company's financial statements in 5 minutes.
+
+### The Income Statement (Profit & Loss)
+
+Revenue: Money coming in
+COGS: Cost of goods sold (direct costs)
+Gross Profit: Revenue - COGS
+Operating Expenses: Salaries, rent, R&D
+Operating Profit (EBIT): Gross - OpEx
+Interest & Taxes: Cost of debt and government
+Net Profit: What's left
+
+**Key metric**: Is net profit growing faster than revenue?
+
+If revenue grows 20% but profit grows only 5%, margins are collapsing. Avoid.
+
+### The Balance Sheet (Assets vs Liabilities)
+
+Assets: What the company owns
+Liabilities: What the company owes
+Equity: Assets - Liabilities = shareholder value
+
+**Key metrics**:
+- Debt-to-Equity: < 1.5 is healthy
+- Current Ratio (current assets / current liabilities): > 1 is healthy
+- Return on Equity (net profit / equity): > 15% is strong
+
+### The Cash Flow Statement (The Truth)
+
+Companies can fake profits. They can't fake cash.
+
+Operating Cash Flow: Cash earned from business
+Capex: Cash spent on equipment
+Free Cash Flow: Operating - Capex
+
+**Real earnings** = free cash flow, not net profit.
+
+A company showing ₹100 profit with ₹10 FCF is in trouble. It's not converting profit to cash.
+
+### Key Takeaway
+
+Earnings per share (EPS) is what analysts tout. Free cash flow per share (FCFPS) is what investors use. Institutions follow FCF. Follow them.`,
+    gitaShloka: {
+      transliteration: 'Satya-avadhānena sampad',
+      meaning: 'Through attention to truth comes prosperity',
+      tradingApplication: 'Financial truth is in cash flow, not marketing metrics. Companies with strong FCF and declining debt are wealth builders. That\'s where institutional money goes.'
+    }
+  },
+
+  {
+    id: 'ch-5-1',
+    phaseId: 'phase-5',
+    number: 1,
+    title: 'Valuation: Price vs. Value',
+    script: `## Is a Stock Cheap or Is It Just Falling?
+
+The most dangerous question in investing is: "Is this a bargain?"
+
+### Price vs. Value
+
+Price: What the market quotes right now
+Value: What the company is actually worth
+
+A stock at ₹100 might be:
+- Expensive if the company is collapsing (value ₹50)
+- Cheap if the company is growing (value ₹200)
+
+Price is visible. Value is hard to calculate.
+
+### The PE Ratio (Price-to-Earnings)
+
+PE = Stock Price / Earnings Per Share
+
+NIFTY at 50 PE: Each rupee of earnings costs ₹50
+Small-cap at 10 PE: Each rupee of earnings costs ₹10
+
+Is small-cap cheaper?
+
+Not necessarily. If the NIFTY company grows earnings 25% annually and small-cap grows 5%, the NIFTY is cheaper.
+
+### The Magic Number: PEG Ratio
+
+PEG = PE / Growth Rate
+
+NIFTY: 50 PE / 20% growth = 2.5 PEG
+Small-cap: 10 PE / 3% growth = 3.3 PEG
+
+NIFTY is actually cheaper on a growth-adjusted basis.
+
+### DCF (Discounted Cash Flow)
+
+The "true" valuation: What are all future cash flows worth today?
+
+A company that generates ₹100 crores in FCF annually:
+- At 15% required return: Worth ₹665 crores
+- At 10% required return: Worth ₹1000 crores
+
+The valuation changes based on your cost of capital assumption.
+
+This is why DCF is *not* precise. Different analysts get different numbers.
+
+### Key Takeaway
+
+Valuation matters over 5+ years. Price matters over months. Don't confuse them. Short-term: Follow price and sentiment. Long-term: Follow valuation and fundamentals.`,
+    gitaShloka: {
+      transliteration: 'Mithyā-drishti paribhāshyate',
+      meaning: 'False perception leads to incorrect conclusions',
+      tradingApplication: 'A stock falling is not always cheap. A stock rising is not always expensive. Separate price perception from value reality.'
+    }
+  },
+
+  // PHASE 6: MACROECONOMICS
+  {
+    id: 'ch-6-0',
+    phaseId: 'phase-6',
+    number: 0,
+    title: 'Interest Rates and Central Banks',
+    script: `## Why the RBI Matters More Than Your Broker
+
+Central banks control interest rates. Interest rates control everything.
+
+### How Rate Changes Ripple
+
+When RBI raises rates:
+- Borrowing gets expensive → Companies earn less
+- Deposits get attractive → Money moves to banks
+- Stocks look less attractive vs. fixed deposits
+- Rupee strengthens → Exports hurt, imports cheap
+
+When RBI cuts rates:
+- Borrowing gets cheap → Companies grow faster
+- Banks lose deposits → Money chases stocks
+- Stocks look attractive again
+- Rupee weakens → Exports boom, imports hurt
+
+### The Cycle
+
+1. **Hiking Cycle**: RBI raises rates to fight inflation
+   - Stocks fall until 3-4 months in
+   - Sentiment sours
+   - Peak occurs when inflation finally falls
+
+2. **Cutting Cycle**: RBI cuts rates to boost growth
+   - Stocks rise fastest at the *beginning*
+   - By the time everyone knows rates are falling, rally is halfway over
+   - Peak is near the end when everyone expects more cuts
+
+### Reading the RBI
+
+Watch:
+- RBI Governor's tone (hawkish vs. dovish)
+- Inflation trajectory
+- Employment data
+- FX reserves
+
+If RBI governor sounds hawkish and inflation is rising, expect rates to stay high. Avoid overleverage.
+
+### Key Takeaway
+
+Rate decisions are 3-6 months ahead of their market impact. By the time news hits, 50% of the move is done. Watch the *trajectory*, not the current rate.`,
+    gitaShloka: {
+      transliteration: 'Chakra-vrittau sthitam rajyam',
+      meaning: 'A kingdom balanced on the wheel of cycles',
+      tradingApplication: 'Economic cycles turn on central bank decisions. Understand the cycle, position ahead of consensus. That\'s institutional trading.'
+    }
+  },
+
+  {
+    id: 'ch-6-1',
+    phaseId: 'phase-6',
+    number: 1,
+    title: 'GDP, Inflation, and Market Cycles',
+    script: `## The Macro Framework That Drives Asset Prices
+
+Markets don't move on earnings. They move on growth expectations.
+
+### The Four Macro Regimes
+
+1. **Goldilocks**: Low inflation, strong growth, low rates
+   - Best regime for stocks
+   - Example: India 2022-2023
+
+2. **Overheating**: High growth, rising inflation, rates rising
+   - Stocks peak here, then decline
+   - Example: US 2021-2022
+
+3. **Recession**: Weak growth, falling inflation, rates falling
+   - Worst for stocks initially, best at the end
+   - Example: Most countries 2023
+
+4. **Stagflation**: Weak growth, high inflation, rates stuck high
+   - Terrible for stocks, good for gold/commodities
+   - Example: 1970s
+
+### Inflation Matters Most
+
+Inflation > 6%: RBI must raise rates. Stocks struggle.
+Inflation 3-5%: Sweet spot. Growth is okay, inflation manageable.
+Inflation < 2%: RBI cuts rates. Growth may be weak.
+
+### Leading Indicators
+
+These change 3-6 months before markets:
+- PMI (Purchasing Managers Index): < 50 = contraction coming
+- Yield curve: Inversion predicts recession in 6-18 months
+- Credit growth: Slowing credit = slow growth ahead
+- FX reserves: Falling reserves = currency pressure ahead
+
+### Key Takeaway
+
+Macro doesn't predict price. But it sets the regime. In Goldilocks, ride winners. In Overheating, reduce leverage. In Recession, wait for bottom. Macro tells you *when* to be aggressive and when to be cautious.`,
+    gitaShloka: {
+      transliteration: 'Kāla-chakra-pālanam samajānāti',
+      meaning: 'The wise understand the wheel of time',
+      tradingApplication: 'Understand macro cycles and you trade with the cycle, not against it. This is why institutions look 6-12 months ahead. You should too.'
+    }
+  },
+
+  // PHASE 7: QUANTITATIVE FINANCE
+  {
+    id: 'ch-7-0',
+    phaseId: 'phase-7',
+    number: 0,
+    title: 'Volatility, Beta, and Probability',
+    script: `## The Math Behind "How Risky Is This?"
+
+Volatility measures price fluctuation. Beta measures correlation to the market. Probability quantifies uncertainty.
+
+### Volatility (The Tremor)
+
+Standard deviation of daily returns = volatility.
+
+NIFTY with 15% annual volatility: Average daily move ≈ 1%
+Small-cap with 40% annual volatility: Average daily move ≈ 2.5%
+
+Higher volatility = wilder swings = bigger opportunities *and* bigger drawdowns.
+
+### Beta (The Sensitivity)
+
+Beta = 1: Moves exactly with the market
+Beta > 1: More volatile than the market (amplified moves)
+Beta < 1: Less volatile (dampened moves)
+
+NIFTY50: Beta = 1 (by definition)
+Midcap: Beta = 1.3 (30% more volatile)
+Bonds: Beta = 0.2 (much less volatile)
+
+### Probability and Distribution
+
+If a stock has 15% volatility:
+- 68% of daily moves are within ±1%
+- 95% of daily moves are within ±2%
+- But 5% are larger. These are when you get hurt.
+
+This is why position sizing matters. A 5% drawdown seems impossible based on normal days. Then it happens.
+
+### Skewness and Tail Risk
+
+Real returns aren't normally distributed. Markets have *fat tails*—extreme moves happen more often than math predicts.
+
+A 2-sigma event ("shouldn't happen once per century") happens roughly every 10-20 years in markets.
+
+This is why overleveraging kills you.
+
+### Key Takeaway
+
+Volatility is your friend when you're short, enemy when you're long with leverage. Understand your portfolio's beta and volatility. Then size positions accordingly.`,
+    gitaShloka: {
+      transliteration: 'Sarvam anitya-svabhāvam',
+      meaning: 'All things are impermanent by nature',
+      tradingApplication: 'High volatility is the nature of markets. Those who fight volatility with excessive leverage perish. Those who respect volatility prosper.'
+    }
+  },
+
+  {
+    id: 'ch-7-1',
+    phaseId: 'phase-7',
+    number: 1,
+    title: 'Correlation, Diversification, and Hedging',
+    script: `## The Only Free Lunch: Not Putting All Eggs in One Basket
+
+Correlation = how two assets move together.
+
+Correlation = 1: Perfect positive (both rise/fall together)
+Correlation = 0: Unrelated
+Correlation = -1: Perfect negative (opposite moves)
+
+### The Diversification Myth
+
+Owning 100 stocks in NSE doesn't diversify if they all correlate to 0.95 (move together).
+
+True diversification:
+- Equities (0.8 to market)
+- Gold (0.1 to market, sometimes negative)
+- Bonds (-0.2 to market in rate rises)
+- Real estate (0.3 to market)
+
+A portfolio with these typically has 60% less volatility than 100% stocks with same expected return.
+
+### Why This Matters
+
+Your portfolio is down 30% in a market crash if it's all stocks.
+
+If it's 60% stocks + 40% bonds/gold, it's down only 10-15%.
+
+From -15%, you need +18% to recover.
+From -30%, you need +43% to recover.
+
+Diversification dramatically reduces recovery time.
+
+### Hedging
+
+Hedging = reducing downside by buying protection (expensive).
+
+Example: Own ₹50 lakhs in NIFTY. Market crashes 20%, you lose ₹10 lakhs.
+
+Or: Buy NIFTY puts for ₹50,000. If market crashes 20%, puts gain ₹10 lakhs. You break even.
+
+Cost: ₹50,000 vs. potential ₹10 lakh loss.
+
+Hedge when you expect volatility. Don't hedge indefinitely (costs money every year).
+
+### Key Takeaway
+
+Diversification is the only free lunch in finance. Low correlation assets reduce risk without reducing returns. Build portfolios with diverse correlations, not just diverse stocks.`,
+    gitaShloka: {
+      transliteration: 'Na eka-visthapanāt sarvam siddhyati',
+      meaning: 'Everything is not accomplished through a single approach',
+      tradingApplication: 'Concentration beats diversification in bull markets. Diversification saves you in crashes. Master both based on the macro regime.'
+    }
+  },
+
+  // PHASE 8: PORTFOLIO BUILDING
+  {
+    id: 'ch-8-0',
+    phaseId: 'phase-8',
+    number: 0,
+    title: 'Building Your Life Portfolio',
+    script: `## Integrating Trading Into a Real Life
+
+Most traders quit because they treat trading as their entire identity. Bad idea.
+
+### The Three Buckets
+
+1. **Core Portfolio** (70%): Long-term wealth building
+   - Index funds (NIFTY, SENSEX)
+   - Quality dividend stocks
+   - Real estate
+   - Gold
+   - Bonds
+
+Expected return: 8-12% annually
+Effort: 2 hours per month
+Risk: Medium
+
+2. **Active Trading** (20%): Short-term P&L
+   - Technical trades on liquid stocks
+   - Options strategies
+   - Forex
+
+Expected return: 2-5% monthly (realistic)
+Effort: 20+ hours per week
+Risk: High
+
+3. **Speculative** (10%): Learning and small bets
+   - New strategies you're testing
+   - Concentration bets on conviction
+   - High-growth small-caps
+
+Expected return: Highly variable
+Effort: 10+ hours per week
+Risk: Very high
+
+### The Math
+
+Core: ₹35 lakhs × 10% = ₹3.5 lakhs/year, autopilot
+Active: ₹10 lakhs × 40% = ₹4 lakhs/year, needs effort
+Speculative: ₹5 lakhs × 0-100% = variable, learning
+
+Total portfolio: ₹50 lakhs, expected return ₹8-10 lakhs/year on average.
+
+If active trading fails, you still have the core growing steadily.
+
+### Rebalancing
+
+Every 6 months:
+- Check allocation (70-20-10)
+- Trim winners in speculative
+- Add to core
+- Redeploy active gains
+
+This forces you to sell high and buy low.
+
+### Key Takeaway
+
+Treat trading like a business, not an identity. Your core portfolio is your wealth. Your trading is your edge. Keep them separate.`,
+    gitaShloka: {
+      transliteration: 'Yogah karmasu kaushalam',
+      meaning: 'Yoga is skill in performing actions',
+      tradingApplication: 'Skill is not in making one perfect trade. It\'s in consistently executing your system across your portfolio while maintaining balance in life.'
+    }
+  },
+
+  {
+    id: 'ch-8-1',
+    phaseId: 'phase-8',
+    number: 1,
+    title: 'From Student to Professional',
+    script: `## The Transition: When Do You Go Full-Time?
+
+This is the question every trader asks. Here's the real answer.
+
+### The Pre-Requirements
+
+You're ready to go full-time when:
+1. Backtested system with 55%+ win rate and 1.5:1+ risk-reward
+2. 1 full year of profitable forward testing (new data)
+3. Survived at least 1 major market correction (-20%+) profitably
+4. Can support 6 months of zero income (emergency fund)
+5. Have a systematic approach, not luck-based
+
+### The Reality
+
+Most traders who go full-time fail within 2 years. Why?
+
+- They had luck in bull markets, not edge
+- They overleveraged when things were good
+- They panicked when drawdowns hit
+- They had no business system (they just traded all day)
+
+### The Safe Transition
+
+Year 1: Trade part-time, hold your job
+- Verify your system works
+- Build discipline
+- Reach ₹20 lakhs account with realistic edges
+
+Year 2: Go semi-full-time (remote job + trading)
+- Reduce job to 20-30 hours
+- Expand trading account
+- Test if you can handle the psychology
+
+Year 3+: If still profitable, consider full-time
+
+### Risk Management at Full-Time Level
+
+Even professionals limit positions to 2-5% risk per trade.
+
+If your edge makes 3% monthly with 20 trades, you're fine.
+If your edge makes 20% monthly with 2 trades, you're overleveraged.
+
+### Key Takeaway
+
+Going full-time is about having an edge, not about wanting to trade all day. Most traders who fail did so because they had no edge, just opinions. Don't be that trader. Have a system first, independence second.`,
+    gitaShloka: {
+      transliteration: 'Karma-yoga-sampannam lokā imeśāh pratāpate',
+      meaning: 'Those skilled in action shape the world',
+      tradingApplication: 'Professional trading is not a freedom dream. It\'s execution mastery. Only those with a proven system and disciplined approach succeed long-term.'
+    }
+  }
 ];
