@@ -2,10 +2,20 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import Script from 'next/script';
 import { useTranslation } from '@/lib/hooks/use-translation';
 import { FearGreedMeter } from '@/components/wikiwiz/fear-greed-meter';
 import { PhaseCard } from '@/components/wikiwiz/phase-card';
+import { EconomicCalendar } from '@/components/wikiwiz/economic-calendar';
 import { phases } from '@/data/phases';
+
+function ClientOnly({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return <div className="h-[500px] bg-card animate-pulse rounded-lg" />;
+  return <>{children}</>;
+}
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -74,6 +84,41 @@ export function HomePageClient() {
         </div>
       </motion.section>
 
+      {/* TradingView Ticker Tape */}
+      <ClientOnly>
+        <section className="px-4 py-6 sm:px-6 lg:px-8 bg-card/50 border-b border-border">
+          <div className="tradingview-widget-container" suppressHydrationWarning>
+            <div className="tradingview-widget-container__widget"></div>
+            <Script 
+              src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+              strategy="lazyOnload"
+              async
+            />
+            <Script
+              id="tradingview-config"
+              type="text/x-tradingview-widget"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  symbols: [
+                    { proName: 'NSE:NIFTY50', title: 'Nifty 50' },
+                    { proName: 'NSE:BANKNIFTY', title: 'Bank Nifty' },
+                    { proName: 'FOREXCOM:XAUUSD', title: 'Gold' },
+                    { proName: 'FX_IDC:USDINR', title: 'USD/INR' },
+                    { proName: 'CRYPTO:BTCUSD', title: 'Bitcoin' }
+                  ],
+                  showSymbolLogo: true,
+                  isTransparent: true,
+                  displayMode: 'adaptive',
+                  colorTheme: 'dark',
+                  locale: 'en'
+                })
+              }}
+            />
+          </div>
+        </section>
+      </ClientOnly>
+
       {/* Fear & Greed Meter Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
@@ -96,6 +141,44 @@ export function HomePageClient() {
           </div>
         </div>
       </motion.section>
+
+      {/* TradingView Chart Section */}
+      <ClientOnly>
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="px-4 py-20 sm:px-6 lg:px-8 border-t border-border"
+        >
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mb-12 text-center">Live Market Analysis</h2>
+            <div id="tradingview_widget" style={{ height: '500px', width: '100%' }} />
+            <Script 
+              src="https://s3.tradingview.com/tv.js"
+              strategy="afterInteractive"
+              onLoad={() => {
+                if ((window as any).TradingView) {
+                  new (window as any).TradingView.widget({
+                    width: "100%",
+                    height: 500,
+                    symbol: "NSE:NIFTY50",
+                    interval: "D",
+                    timezone: "Asia/Kolkata",
+                    theme: "dark",
+                    style: "1",
+                    locale: "en",
+                    toolbar_bg: "#0A0A0F",
+                    enable_publishing: false,
+                    allow_symbol_change: true,
+                    container_id: "tradingview_widget"
+                  });
+                }
+              }}
+            />
+          </div>
+        </motion.section>
+      </ClientOnly>
 
       {/* Roadmap Preview Section */}
       <motion.section
@@ -131,6 +214,9 @@ export function HomePageClient() {
           </div>
         </div>
       </motion.section>
+
+      {/* Economic Calendar Section */}
+      <EconomicCalendar />
 
       {/* CTA Section */}
       <motion.section

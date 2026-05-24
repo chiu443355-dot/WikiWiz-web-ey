@@ -1,163 +1,109 @@
-export const translations = {
+export type Language = 'en' | 'hi' | 'mr' | 'pa' | 'bn' | 'bh' | 'raj';
+
+type TranslationMap = Record<string, string>;
+type Translations = Record<Language, TranslationMap>;
+
+export const translations: Translations = {
   en: {
-    // Navigation
-    'nav.home': 'Home',
-    'nav.learn': 'Learn',
-    'nav.calculators': 'Calculators',
-    'nav.mlk': 'MLK Lab',
-    'nav.language': 'Language',
-    'nav.getStarted': 'Get Started',
-
-    // Home Page
-    'home.hero.title': 'Master Investment Wisdom',
-    'home.hero.subtitle': 'Learn trading strategies through the timeless wisdom of the Bhagavad Gita',
-    'home.hero.cta1': 'Start Learning',
-    'home.hero.cta2': 'Explore Calculators',
-    'home.feargreed': 'Market Sentiment',
-    'home.roadmapTitle': 'Your Learning Journey',
-    'home.roadmapDesc': '15 phases of investment mastery',
-
-    // Learn Page
-    'learn.title': 'Learning Roadmap',
-    'learn.description': 'Master investing through philosophy and analysis',
-    'learn.duration': 'Duration: ',
-    'learn.topics': 'Topics',
+    'nav.home': 'Home', 'nav.learn': 'Learn', 'nav.calculators': 'Calculators',
+    'nav.mlk': 'MLK Lab', 'nav.getStarted': 'Get Started',
+    'home.hero.title': 'Learn Markets. Master Psychology. Build Discipline.',
+    'home.hero.subtitle': 'India\'s first multilingual financial education platform rooted in Karmayoga wisdom.',
+    'home.hero.cta1': 'Start Learning Free', 'home.hero.cta2': 'Open MLK Lab',
+    'home.feargreed': 'Market Sentiment', 'home.roadmapTitle': 'Your Learning Journey',
+    'home.roadmapDesc': '15 phases from zero to institutional mastery',
+    'learn.title': 'Learning Roadmap', 'learn.description': 'From financial literacy to quantitative mastery',
     'learn.startChapter': 'Start Chapter',
-
-    // Calculators
     'calc.title': 'Investment Calculators',
-    'calc.compound': 'Compound Interest',
-    'calc.sip': 'SIP Calculator',
-    'calc.positionSizing': 'Position Sizing',
-    'calc.riskReward': 'Risk-Reward Ratio',
-    'calc.inflation': 'Inflation Calculator',
-    'calc.dcf': 'DCF Valuation',
-    'calc.kelly': 'Kelly Criterion',
-    'calc.drawdown': 'Drawdown Calculator',
-    'calc.initialAmount': 'Initial Amount (₹)',
-    'calc.monthlyAmount': 'Monthly Amount (₹)',
-    'calc.years': 'Years',
-    'calc.returnRate': 'Annual Return %',
-    'calc.calculate': 'Calculate',
-    'calc.result': 'Result',
-
-    // MLK Lab
-    'mlk.title': 'MLK Prediction Lab',
-    'mlk.description': 'Mathematical framework for market regime detection',
-    'mlk.activate': 'Activate MLK Analysis',
-    'mlk.stableRegime': 'Stable Regime',
-    'mlk.transitional': 'Transitional',
-    'mlk.critical': 'Critical',
-    'mlk.framework': 'Mathematical Framework',
-    'mlk.probabilityCone': 'Probability Cone',
-    'mlk.disclaimer': 'Educational framework only. Not a prediction or trading signal.',
-
-    // Common
-    'common.loading': 'Loading...',
-    'common.error': 'An error occurred',
+    'mlk.title': 'MLK Prediction Lab', 'mlk.activate': 'Activate MLK Prediction',
+    'mlk.disclaimer': 'Educational simulation only. Not financial advice.',
   },
   hi: {
-    'nav.home': 'होम',
-    'nav.learn': 'सीखें',
-    'nav.calculators': 'कैलकुलेटर',
-    'nav.mlk': 'एमएलके लैब',
-    'nav.language': 'भाषा',
-    'nav.getStarted': 'शुरू करें',
-
-    'home.hero.title': 'निवेश बुद्धिमानी सीखें',
-    'home.hero.subtitle': 'भगवद्गीता की कालजयी ज्ञान के माध्यम से ट्रेडिंग रणनीतियाँ सीखें',
-    'home.hero.cta1': 'सीखना शुरू करें',
-    'home.hero.cta2': 'कैलकुलेटर देखें',
-    'home.feargreed': 'बाजार भावना',
-    'home.roadmapTitle': 'आपकी सीखने की यात्रा',
-    'home.roadmapDesc': '15 चरण निवेश प्रवीणता के',
-
-    'learn.title': 'सीखने की रोडमैप',
-    'learn.description': 'दर्शन और विश्लेषण के माध्यम से निवेश को महारत हासिल करें',
-    'learn.duration': 'अवधि: ',
-    'learn.topics': 'विषय',
+    'nav.home': 'होम', 'nav.learn': 'सीखें', 'nav.calculators': 'कैलकुलेटर',
+    'nav.mlk': 'MLK लैब', 'nav.getStarted': 'शुरू करें',
+    'home.hero.title': 'बाजार सीखें। मनोविज्ञान को समझें। अनुशासन बनाएं।',
+    'home.hero.subtitle': 'भारत का पहला बहुभाषी वित्तीय शिक्षा मंच कर्मयोग की बुद्धिमत्ता पर आधारित।',
+    'home.hero.cta1': 'मुफ्त सीखना शुरू करें', 'home.hero.cta2': 'MLK लैब खोलें',
+    'home.feargreed': 'बाजार भावना', 'home.roadmapTitle': 'आपकी सीखने की यात्रा',
+    'home.roadmapDesc': 'शून्य से संस्थागत स्तर तक 15 चरण',
+    'learn.title': 'सीखने का रोडमैप', 'learn.description': 'वित्तीय साक्षरता से मात्रात्मक महारत तक',
     'learn.startChapter': 'अध्याय शुरू करें',
-
     'calc.title': 'निवेश कैलकुलेटर',
-    'calc.compound': 'चक्रवृद्धि ब्याज',
-    'calc.sip': 'एसआईपी कैलकुलेटर',
-    'calc.positionSizing': 'पोजीशन साइजिंग',
-    'calc.riskReward': 'जोखिम-पुरस्कार अनुपात',
-    'calc.inflation': 'मुद्रास्फीति कैलकुलेटर',
-    'calc.dcf': 'डीसीएफ मूल्यांकन',
-    'calc.kelly': 'केली मानदंड',
-    'calc.drawdown': 'ड्रॉडाउन कैलकुलेटर',
-
-    'mlk.title': 'एमएलके भविष्यवाणी लैब',
-    'mlk.description': 'बाजार शासन पहचान के लिए गणितीय ढांचा',
-    'mlk.activate': 'एमएलके विश्लेषण सक्रिय करें',
-
-    'common.loading': 'लोड हो रहा है...',
+    'mlk.title': 'MLK भविष्यवाणी लैब', 'mlk.activate': 'MLK भविष्यवाणी सक्रिय करें',
+    'mlk.disclaimer': 'केवल शैक्षणिक सिमुलेशन। वित्तीय सलाह नहीं।',
   },
   mr: {
-    'nav.home': 'होम',
-    'nav.learn': 'शिका',
-    'nav.calculators': 'कॅलक्युलेटर',
-    'nav.mlk': 'एमएलके लॅब',
-    'nav.language': 'भाषा',
-    'nav.getStarted': 'सुरू करा',
-
-    'home.hero.title': 'गुंतवणूक बुद्धिमत्ता शिका',
-    'home.hero.subtitle': 'भगवद्गीताच्या कालजयी ज्ञानाद्वारे व्यापार रणनीती शिका',
-    'home.hero.cta1': 'शिकणे सुरू करा',
-    'home.hero.cta2': 'कॅलक्युलेटर पहा',
-
-    'common.loading': 'लोड होत आहे...',
+    'nav.home': 'होम', 'nav.learn': 'शिका', 'nav.calculators': 'कॅलक्युलेटर',
+    'nav.mlk': 'MLK लॅब', 'nav.getStarted': 'सुरू करा',
+    'home.hero.title': 'बाजार शिका। मानसशास्त्र समजा। शिस्त तयार करा।',
+    'home.hero.subtitle': 'भारतातील पहिले बहुभाषिक आर्थिक शिक्षण व्यासपीठ कर्मयोग तत्त्वज्ञानावर आधारित।',
+    'home.hero.cta1': 'मोफत शिकणे सुरू करा', 'home.hero.cta2': 'MLK लॅब उघडा',
+    'home.feargreed': 'बाजार भावना', 'home.roadmapTitle': 'तुमचा शिक्षण प्रवास',
+    'home.roadmapDesc': 'शून्यापासून संस्थात्मक पातळीपर्यंत १५ टप्पे',
+    'learn.title': 'शिक्षण रोडमॅप', 'learn.description': 'आर्थिक साक्षरतेपासून प्रमाणात्मक प्रभुत्वापर्यंत',
+    'learn.startChapter': 'अध्याय सुरू करा',
+    'calc.title': 'गुंतवणूक कॅलक्युलेटर',
+    'mlk.title': 'MLK भविष्यवाणी लॅब', 'mlk.activate': 'MLK भविष्यवाणी सक्रिय करा',
+    'mlk.disclaimer': 'केवळ शैक्षणिक सिमुलेशन। आर्थिक सल्ला नाही।',
   },
   pa: {
-    'nav.home': 'ਘਰ',
-    'nav.learn': 'ਸਿਖੋ',
-    'nav.calculators': 'ਕੈਲਕੁਲੇਟਰ',
-    'nav.mlk': 'ਐਮ.ਐਲ.ਕੇ ਲੈਬ',
-    'nav.language': 'ਭਾਸ਼ਾ',
-    'nav.getStarted': 'ਸ਼ੁਰੂ ਕਰੋ',
-
-    'common.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
+    'nav.home': 'ਘਰ', 'nav.learn': 'ਸਿਖੋ', 'nav.calculators': 'ਕੈਲਕੁਲੇਟਰ',
+    'nav.mlk': 'MLK ਲੈਬ', 'nav.getStarted': 'ਸ਼ੁਰੂ ਕਰੋ',
+    'home.hero.title': 'ਬਾਜ਼ਾਰ ਸਿਖੋ। ਮਨੋਵਿਗਿਆਨ ਸਮਝੋ। ਅਨੁਸ਼ਾਸਨ ਬਣਾਓ।',
+    'home.hero.subtitle': 'ਭਾਰਤ ਦਾ ਪਹਿਲਾ ਬਹੁਭਾਸ਼ੀ ਵਿੱਤੀ ਸਿੱਖਿਆ ਪਲੇਟਫਾਰਮ ਕਰਮਯੋਗ ਬੁੱਧੀ ਤੇ ਆਧਾਰਿਤ।',
+    'home.hero.cta1': 'ਮੁਫ਼ਤ ਸਿਖਣਾ ਸ਼ੁਰੂ ਕਰੋ', 'home.hero.cta2': 'MLK ਲੈਬ ਖੋਲ੍ਹੋ',
+    'home.feargreed': 'ਬਾਜ਼ਾਰ ਭਾਵਨਾ', 'home.roadmapTitle': 'ਤੁਹਾਡੀ ਸਿੱਖਣ ਯਾਤਰਾ',
+    'home.roadmapDesc': 'ਜ਼ੀਰੋ ਤੋਂ ਸੰਸਥਾਗਤ ਪੱਧਰ ਤੱਕ 15 ਪੜਾਅ',
+    'learn.title': 'ਸਿੱਖਣ ਰੋਡਮੈਪ', 'learn.description': 'ਵਿੱਤੀ ਸਾਖਰਤਾ ਤੋਂ ਮਾਤਰਾਤਮਕ ਮੁਹਾਰਤ ਤੱਕ',
+    'learn.startChapter': 'ਅਧਿਆਏ ਸ਼ੁਰੂ ਕਰੋ',
+    'calc.title': 'ਨਿਵੇਸ਼ ਕੈਲਕੁਲੇਟਰ',
+    'mlk.title': 'MLK ਭਵਿੱਖਬਾਣੀ ਲੈਬ', 'mlk.activate': 'MLK ਭਵਿੱਖਬਾਣੀ ਸਕਿਰਿਆ ਕਰੋ',
+    'mlk.disclaimer': 'ਸਿਰਫ਼ ਵਿਦਿਅਕ ਸਿਮੂਲੇਸ਼ਨ। ਵਿੱਤੀ ਸਲਾਹ ਨਹੀਂ।',
   },
   bn: {
-    'nav.home': 'হোম',
-    'nav.learn': 'শিখুন',
-    'nav.calculators': 'ক্যালকুলেটর',
-    'nav.mlk': 'এমএলকে ল্যাব',
-    'nav.language': 'ভাষা',
-    'nav.getStarted': 'শুরু করুন',
-
-    'common.loading': 'লোড হচ্ছে...',
+    'nav.home': 'হোম', 'nav.learn': 'শিখুন', 'nav.calculators': 'ক্যালকুলেটর',
+    'nav.mlk': 'MLK ল্যাব', 'nav.getStarted': 'শুরু করুন',
+    'home.hero.title': 'বাজার শিখুন। মনোবিজ্ঞান বুঝুন। শৃঙ্খলা গড়ুন।',
+    'home.hero.subtitle': 'ভারতের প্রথম বহুভাষিক আর্থিক শিক্ষা প্ল্যাটফর্ম কর্মযোগ জ্ঞানের উপর ভিত্তি করে।',
+    'home.hero.cta1': 'বিনামূল্যে শেখা শুরু করুন', 'home.hero.cta2': 'MLK ল্যাব খুলুন',
+    'home.feargreed': 'বাজার অনুভূতি', 'home.roadmapTitle': 'আপনার শেখার যাত্রা',
+    'home.roadmapDesc': 'শূন্য থেকে প্রাতিষ্ঠানিক স্তর পর্যন্ত ১৫ ধাপ',
+    'learn.title': 'শেখার রোডম্যাপ', 'learn.description': 'আর্থিক সাক্ষরতা থেকে পরিমাণগত দক্ষতা পর্যন্ত',
+    'learn.startChapter': 'অধ্যায় শুরু করুন',
+    'calc.title': 'বিনিয়োগ ক্যালকুলেটর',
+    'mlk.title': 'MLK পূর্বাভাস ল্যাব', 'mlk.activate': 'MLK পূর্বাভাস সক্রিয় করুন',
+    'mlk.disclaimer': 'শুধুমাত্র শিক্ষামূলক সিমুলেশন। আর্থিক পরামর্শ নয়।',
   },
   bh: {
-    'nav.home': 'होम',
-    'nav.learn': 'सीखो',
-    'nav.calculators': 'कैलकुलेटर',
-    'nav.mlk': 'एमएलके लैब',
-    'nav.language': 'भाषा',
-    'nav.getStarted': 'शुरू करो',
-
-    'common.loading': 'लोड हो रहा बा...',
+    'nav.home': 'होम', 'nav.learn': 'सीखीं', 'nav.calculators': 'कैलकुलेटर',
+    'nav.mlk': 'MLK लैब', 'nav.getStarted': 'शुरू करीं',
+    'home.hero.title': 'बाजार सीखीं। मनोविज्ञान समझीं। अनुशासन बनाईं।',
+    'home.hero.subtitle': 'भारत के पहिला बहुभाषी वित्तीय शिक्षा मंच कर्मयोग के ज्ञान पर आधारित।',
+    'home.hero.cta1': 'मुफ्त सीखल शुरू करीं', 'home.hero.cta2': 'MLK लैब खोलीं',
+    'home.feargreed': 'बाजार भावना', 'home.roadmapTitle': 'रउआ के सीखे के यात्रा',
+    'home.roadmapDesc': 'शून्य से संस्थागत स्तर तक 15 चरण',
+    'learn.title': 'सीखे के रोडमैप', 'learn.description': 'वित्तीय साक्षरता से मात्रात्मक महारत तक',
+    'learn.startChapter': 'अध्याय शुरू करीं',
+    'calc.title': 'निवेश कैलकुलेटर',
+    'mlk.title': 'MLK भविष्यवाणी लैब', 'mlk.activate': 'MLK भविष्यवाणी चालू करीं',
+    'mlk.disclaimer': 'केवल शैक्षणिक सिमुलेशन। वित्तीय सलाह नाहीं।',
   },
   raj: {
-    'nav.home': 'होम',
-    'nav.learn': 'सिखो',
-    'nav.calculators': 'कैलकुलेटर',
-    'nav.mlk': 'एमएलके लैब',
-    'nav.language': 'भाषा',
-    'nav.getStarted': 'शुरू करो',
-
-    'common.loading': 'लोड हो रहो छै...',
+    'nav.home': 'होम', 'nav.learn': 'सीखो', 'nav.calculators': 'कैलकुलेटर',
+    'nav.mlk': 'MLK लैब', 'nav.getStarted': 'शुरू करो',
+    'home.hero.title': 'बाजार सीखो। मनोविज्ञान समझो। अनुशासन बणाओ।',
+    'home.hero.subtitle': 'भारत रो पहलो बहुभाषी वित्तीय शिक्षा मंच कर्मयोग री बुद्धि पर आधारित।',
+    'home.hero.cta1': 'मुफ्त सीखणो शुरू करो', 'home.hero.cta2': 'MLK लैब खोलो',
+    'home.feargreed': 'बाजार भावना', 'home.roadmapTitle': 'थारी सीखण री यात्रा',
+    'home.roadmapDesc': 'शून्य सूं संस्थागत स्तर तक 15 चरण',
+    'learn.title': 'सीखण रो रोडमैप', 'learn.description': 'वित्तीय साक्षरता सूं मात्रात्मक महारत तक',
+    'learn.startChapter': 'अध्याय शुरू करो',
+    'calc.title': 'निवेश कैलकुलेटर',
+    'mlk.title': 'MLK भविष्यवाणी लैब', 'mlk.activate': 'MLK भविष्यवाणी चालू करो',
+    'mlk.disclaimer': 'केवल शैक्षणिक सिमुलेशन। वित्तीय सलाह नीं।',
   },
-} as const;
+};
 
-export const t = (key: string, language: 'en' | 'hi' | 'mr' | 'pa' | 'bn' | 'bh' | 'raj' = 'en'): string => {
-  const keys = key.split('.');
-  let value: any = translations[language];
-  
-  for (const k of keys) {
-    value = value?.[k];
-  }
-  
-  return value || key;
+export const t = (key: string, language: Language = 'en'): string => {
+  return translations[language]?.[key] || translations['en']?.[key] || key;
 };

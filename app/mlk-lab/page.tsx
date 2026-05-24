@@ -2,9 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Script from 'next/script';
 import { Navbar } from '@/components/wikiwiz/navbar';
-import { useLanguage } from '@/lib/store/language';
 import { FearGreedMeter } from '@/components/wikiwiz/fear-greed-meter';
+import { MarketSymbolSwitcher, MarketSymbol } from '@/components/wikiwiz/market-symbol-switcher';
+import { MLKVisualization } from '@/components/wikiwiz/mlk-visualization';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const probabilityConeData = [
@@ -15,9 +17,25 @@ const probabilityConeData = [
   { period: '12M', pessimistic: 65, expected: 155, optimistic: 240 },
 ];
 
+const INITIAL_SYMBOL: MarketSymbol = {
+  label: 'NIFTY',
+  tradingview: 'NSE:NIFTY50',
+  color: 'from-green-500 to-green-600',
+  description: 'NIFTY 50 Index'
+};
+
+const SYMBOL_VOLATILITIES: Record<string, number> = {
+  'GOLD': 0.15,
+  'EURUSD': 0.12,
+  'OIL': 0.25,
+  'BTCUSD': 0.45,
+  'NIFTY': 0.18,
+  'NASDAQ': 0.20
+};
+
 export default function MLKLabPage() {
-  const { language } = useLanguage();
   const [showAnalysis, setShowAnalysis] = useState(false);
+  const [activeSymbol, setActiveSymbol] = useState<MarketSymbol>(INITIAL_SYMBOL);
 
   return (
     <>
@@ -73,6 +91,62 @@ export default function MLKLabPage() {
                 exit={{ opacity: 0, height: 0 }}
                 className="space-y-12"
               >
+                {/* Market Symbol Switcher */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-lg border border-border bg-card p-8"
+                >
+                  <MarketSymbolSwitcher 
+                    activeSymbol={activeSymbol}
+                    onSymbolChange={setActiveSymbol}
+                  />
+                </motion.div>
+
+                {/* MLK Visualization */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-lg border border-border bg-card p-8"
+                >
+                  <MLKVisualization 
+                    symbol={activeSymbol.label}
+                    volatility={SYMBOL_VOLATILITIES[activeSymbol.label] || 0.2}
+                  />
+                </motion.div>
+
+                {/* Live Chart Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-lg border border-border bg-card p-8"
+                >
+                  <h3 className="text-2xl font-serif font-bold text-foreground mb-8">Live Market Chart</h3>
+                  <div id="tradingview_widget" style={{ height: '500px', width: '100%' }} />
+                  <Script 
+                    src="https://s3.tradingview.com/tv.js"
+                    strategy="afterInteractive"
+                    onLoad={() => {
+                      if ((window as any).TradingView) {
+                        new (window as any).TradingView.widget({
+                          width: "100%",
+                          height: 500,
+                          symbol: activeSymbol.tradingview,
+                          interval: "D",
+                          timezone: "Asia/Kolkata",
+                          theme: "dark",
+                          style: "1",
+                          locale: "en",
+                          toolbar_bg: "#0A0A0F",
+                          enable_publishing: false,
+                          allow_symbol_change: true,
+                          container_id: "tradingview_widget"
+                        });
+                      }
+                    }}
+                  />
+                </motion.div>
+
                 {/* Regime Detection */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -278,6 +352,41 @@ export default function MLKLabPage() {
                 </motion.div>
               </motion.div>
             )}
+
+            {/* Market Chart - TradingView Widget */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-lg border border-border bg-card p-6 space-y-4"
+            >
+              <h3 className="text-2xl font-serif font-bold text-foreground">Live Market Chart</h3>
+              <div className="w-full rounded-lg overflow-hidden bg-background/50">
+                <div id="tradingview_mlk_widget" style={{ height: '500px', width: '100%' }} />
+                <Script 
+                  src="https://s3.tradingview.com/tv.js"
+                  strategy="afterInteractive"
+                  onLoad={() => {
+                    if ((window as any).TradingView) {
+                      new (window as any).TradingView.widget({
+                        width: "100%",
+                        height: 500,
+                        symbol: "NSE:NIFTY50",
+                        interval: "D",
+                        timezone: "Asia/Kolkata",
+                        theme: "dark",
+                        style: "1",
+                        locale: "en",
+                        toolbar_bg: "#0A0A0F",
+                        enable_publishing: false,
+                        allow_symbol_change: true,
+                        container_id: "tradingview_mlk_widget"
+                      });
+                    }
+                  }}
+                />
+              </div>
+            </motion.div>
 
             {/* Disclaimer */}
             <motion.div

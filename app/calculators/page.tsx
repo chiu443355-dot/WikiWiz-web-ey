@@ -6,8 +6,12 @@ import { Navbar } from '@/components/wikiwiz/navbar';
 import { CompoundInterestCalc } from '@/components/calculators/compound-interest-calc';
 import { SIPCalculator } from '@/components/calculators/sip-calculator';
 import { InflationCalculator } from '@/components/calculators/inflation-calculator';
-import { useLanguage } from '@/lib/store/language';
-import { t } from '@/data/translations';
+import { PositionSizingCalculator } from '@/components/calculators/position-sizing-calc';
+import { RiskRewardCalculator } from '@/components/calculators/risk-reward-calc';
+import { DCFCalculator } from '@/components/calculators/dcf-calc';
+import { KellyCriterionCalculator } from '@/components/calculators/kelly-criterion-calc';
+import { DrawdownCalculator } from '@/components/calculators/drawdown-calc';
+import { useTranslation } from '@/lib/hooks/use-translation';
 
 const calculators = [
   {
@@ -53,7 +57,7 @@ const calculators = [
 ];
 
 export default function CalculatorsPage() {
-  const { language } = useLanguage();
+  const { t } = useTranslation();
   const [selectedCalc, setSelectedCalc] = useState('compound');
 
   return (
@@ -112,16 +116,11 @@ export default function CalculatorsPage() {
               {selectedCalc === 'compound' && <CompoundInterestCalc />}
               {selectedCalc === 'sip' && <SIPCalculator />}
               {selectedCalc === 'inflation' && <InflationCalculator />}
-              
-              {/* Placeholder for other calculators */}
-              {['position-sizing', 'risk-reward', 'dcf', 'kelly', 'drawdown'].includes(selectedCalc) && (
-                <div className="p-12 rounded-lg border border-border bg-card text-center space-y-4">
-                  <div className="text-4xl font-serif font-bold text-primary">Coming Soon</div>
-                  <p className="text-muted-foreground">
-                    The {calculators.find((c) => c.id === selectedCalc)?.title} calculator is being built. Stay tuned!
-                  </p>
-                </div>
-              )}
+              {selectedCalc === 'position-sizing' && <PositionSizingCalculator />}
+              {selectedCalc === 'risk-reward' && <RiskRewardCalculator />}
+              {selectedCalc === 'dcf' && <DCFCalculator />}
+              {selectedCalc === 'kelly' && <KellyCriterionCalculator />}
+              {selectedCalc === 'drawdown' && <DrawdownCalculator />}
             </motion.div>
 
             {/* Educational Info */}
