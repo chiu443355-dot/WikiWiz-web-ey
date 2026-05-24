@@ -1041,5 +1041,40 @@ Going full-time is about having an edge, not about wanting to trade all day. Mos
       meaning: 'Those skilled in action shape the world',
       tradingApplication: 'Professional trading is not a freedom dream. It\'s execution mastery. Only those with a proven system and disciplined approach succeed long-term.'
     }
-  }
+  },
+
+  // Placeholder chapters for remaining phases (will be fully fleshed out with complete content)
+  ...Array.from({ length: 7 }, (_, phaseIdx) => ({
+    id: `ch-${9 + phaseIdx}-0`,
+    phaseId: `phase-${9 + phaseIdx}`,
+    number: 0,
+    title: `Advanced Module ${phaseIdx + 1} - Chapter 1`,
+    script: `## Advanced Trading Concepts
+
+This is an advanced trading module building on the foundations you've learned. The concepts here are designed for traders ready to scale their operations.
+
+### What You'll Learn
+
+- Advanced portfolio construction techniques
+- Risk management at institutional levels
+- Macro trading strategies
+- Sector rotation and tactical asset allocation
+
+### Prerequisite Knowledge
+
+You should have completed all previous chapters and have practical experience with the systems covered.
+
+### Key Principle
+
+At advanced levels, the edge shifts from identifying opportunities to managing risk and execution. Many traders have good ideas. Few execute at scale.
+
+### Next Steps
+
+Master these concepts through practice, then move to the next module.`,
+    gitaShloka: {
+      transliteration: 'Shrutva tat param guhyam',
+      meaning: 'After hearing these secret teachings',
+      tradingApplication: 'Advanced knowledge requires advanced discipline. These teachings are for those ready to implement them.'
+    }
+  })) as any
 ];
