@@ -1,165 +1,87 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Calendar, TrendingUp } from 'lucide-react';
-
-interface Event {
-  date: string;
-  event: string;
-  impact: 'High' | 'Medium' | 'Low';
-  currency: string;
-}
-
-const economicEvents: Event[] = [
-  { date: 'Jan 29, 2025', event: 'RBI MPC Decision', impact: 'High', currency: 'INR' },
-  { date: 'Feb 5, 2025', event: 'US Jobless Claims', impact: 'High', currency: 'USD' },
-  { date: 'Feb 12, 2025', event: 'US CPI (Core)', impact: 'High', currency: 'USD' },
-  { date: 'Feb 14, 2025', event: 'India Retail Inflation', impact: 'Medium', currency: 'INR' },
-  { date: 'Feb 19, 2025', event: 'ECB Interest Rate', impact: 'High', currency: 'EUR' },
-  { date: 'Mar 5, 2025', event: 'US Nonfarm Payroll', impact: 'High', currency: 'USD' },
-  { date: 'Mar 7, 2025', event: 'RBI Monetary Policy', impact: 'High', currency: 'INR' },
-  { date: 'Mar 19, 2025', event: 'FOMC Decision', impact: 'High', currency: 'USD' },
-  { date: 'Apr 2, 2025', event: 'India Budget Q4 GDP', impact: 'Medium', currency: 'INR' },
-  { date: 'Apr 9, 2025', event: 'US CPI (Core)', impact: 'High', currency: 'USD' },
-];
-
-function getImpactColor(impact: string) {
-  switch (impact) {
-    case 'High':
-      return 'border-l-red-500 bg-red-500/5 hover:bg-red-500/10';
-    case 'Medium':
-      return 'border-l-yellow-500 bg-yellow-500/5 hover:bg-yellow-500/10';
-    case 'Low':
-      return 'border-l-green-500 bg-green-500/5 hover:bg-green-500/10';
-    default:
-      return 'border-l-primary bg-primary/5';
-  }
-}
-
-function getImpactBadge(impact: string) {
-  const baseClasses = 'px-2 py-1 rounded text-xs font-medium';
-  switch (impact) {
-    case 'High':
-      return `${baseClasses} bg-red-500/20 text-red-200 border border-red-500/30`;
-    case 'Medium':
-      return `${baseClasses} bg-yellow-500/20 text-yellow-200 border border-yellow-500/30`;
-    case 'Low':
-      return `${baseClasses} bg-green-500/20 text-green-200 border border-green-500/30`;
-    default:
-      return `${baseClasses} bg-primary/20 text-primary border border-primary/30`;
-  }
-}
+import { useEffect, useRef } from 'react';
 
 export function EconomicCalendar() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
-      },
-    },
-  };
+  const calendarRef = useRef<HTMLDivElement>(null);
+  const tickerRef = useRef<HTMLDivElement>(null);
+  const newsRef = useRef<HTMLDivElement>(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 },
-  };
+  useEffect(() => {
+    // 1. Live Market Ticker Tape Widget
+    if (tickerRef.current && !tickerRef.current.querySelector('script')) {
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        symbols: [
+          { proName: 'FOREXCOM:SPX500', title: 'S&P 500' },
+          { proName: 'FX_IDC:USDINR', title: 'USD/INR' },
+          { proName: 'BITSTAMP:BTCUSD', title: 'Bitcoin' },
+          { proName: 'BSE:SENSEX', title: 'Sensex' }
+        ],
+        showSymbolLogo: true,
+        colorTheme: 'dark',
+        isTransparent: true,
+        displayMode: 'adaptive',
+      });
+      tickerRef.current.appendChild(script);
+    }
+
+    // 2. Macro Economic Calendar Widget
+    if (calendarRef.current && !calendarRef.current.querySelector('script')) {
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        width: '100%',
+        height: '500',
+        colorTheme: 'dark',
+        isTransparent: false,
+        importanceFilter: '-1,0,1',
+        currencyFilter: 'INR,USD,EUR,GBP',
+      });
+      calendarRef.current.appendChild(script);
+    }
+
+    // 3. Live Financial News Timeline Widget
+    if (newsRef.current && !newsRef.current.querySelector('script')) {
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-timeline.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        feedMode: 'all_symbols',
+        colorTheme: 'dark',
+        isTransparent: false,
+        displayMode: 'regular',
+        width: '100%',
+        height: '500',
+      });
+      newsRef.current.appendChild(script);
+    }
+  }, []);
 
   return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8 border-t border-border">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <Calendar className="w-8 h-8 text-primary" />
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground">Economic Calendar</h2>
-          </div>
-          <p className="text-muted-foreground max-w-2xl">
-            Track crucial economic events that move markets. High-impact events can trigger significant volatility.
-          </p>
-        </motion.div>
+    <div className="w-full space-y-8">
+      {/* Ticker Tape across the top */}
+      <div ref={tickerRef} className="w-full bg-card/40 backdrop-blur rounded-xl overflow-hidden border border-border" />
 
-        {/* Legend */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-wrap gap-4 mb-8"
-        >
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500" />
-            <span className="text-sm text-muted-foreground">High Impact</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-            <span className="text-sm text-muted-foreground">Medium Impact</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-green-500" />
-            <span className="text-sm text-muted-foreground">Low Impact</span>
-          </div>
-        </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Economic Calendar Block */}
+        <div className="p-6 rounded-2xl border border-border bg-card">
+          <h3 className="font-serif font-bold text-xl mb-4 text-foreground tracking-wide">Macro Economic Calendar</h3>
+          <div ref={calendarRef} className="w-full" />
+        </div>
 
-        {/* Events Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-3"
-        >
-          {economicEvents.map((event, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 rounded-lg border-l-4 transition-all duration-200 ${getImpactColor(event.impact)}`}
-            >
-              <div className="flex items-start gap-4 flex-1">
-                <div className="mt-1">
-                  <Calendar className="w-5 h-5 text-primary opacity-70" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground font-mono">{event.date}</p>
-                  <p className="text-lg font-medium text-foreground mt-1">{event.event}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 sm:justify-end">
-                <div className={getImpactBadge(event.impact)}>
-                  {event.impact}
-                </div>
-                <span className="px-3 py-1 rounded bg-card border border-border text-sm font-medium text-primary">
-                  {event.currency}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Footer Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="mt-12 p-6 rounded-lg bg-card border border-border"
-        >
-          <div className="flex items-start gap-3">
-            <TrendingUp className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-            <div>
-              <h3 className="font-medium text-foreground mb-2">Trading During Events</h3>
-              <p className="text-sm text-muted-foreground">
-                High-impact events can cause price volatility and wider spreads. Consider reducing position sizes or tightening stop losses during major data releases.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+        {/* Live News Feed Block */}
+        <div className="p-6 rounded-2xl border border-border bg-card">
+          <h3 className="font-serif font-bold text-xl mb-4 text-foreground tracking-wide">Institutional News Flow</h3>
+          <div ref={newsRef} className="w-full" />
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
