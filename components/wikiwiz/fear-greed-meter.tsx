@@ -1,119 +1,80 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 
-interface FearGreedMeterProps {
-  value?: number;
-  size?: 'sm' | 'md' | 'lg';
+interface FearGreedData {
+  value: string;
+  value_classification: string;
 }
 
-export function FearGreedMeter({ value = 67, size = 'md' } : FearGreedMeterProps) {
-  const [displayValue, setDisplayValue] = useState(value);
-  const radius = size === 'sm' ? 60 : size === 'md' ? 90 : 120;
-  const strokeWidth = 8;
+export function FearGreedMeter() {
+  const [data, setData] = useState<FearGreedData | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setDisplayValue(value);
-  }, [value]);
+    async function fetchSentiment() {
+      try {
+        const res = await fetch('https://api.alternative.me/fng/');
+        const json = await res.json();
+        if (json.data && json.data[0]) {
+          setData(json.data[0]);
+        }
+      } catch (err) {
+        console.error('Failed fetching live sentiment telemetry data:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchSentiment();
+  }, []);
 
-  // Determine color based on value
-  const getColor = (val: number) => {
-    if (val < 25) return '#FF4757'; // Extreme Fear - Red
-    if (val < 45) return '#FFA502'; // Fear - Orange
-    if (val < 55) return '#FFD700'; // Neutral - Yellow
-    if (val < 75) return '#90EE90'; // Greed - Light Green
-    return '#00C251'; // Extreme Greed - Green
-  };
+  if (loading) {
+    return (
+      <div className="p-6 rounded-2xl border border-border bg-card text-center h-[240px] flex items-center justify-center">
+        <span className="text-sm text-muted-foreground animate-pulse font-mono">Syncing market sentiment metrics...</span>
+      </div>
+    );
+  }
 
-  // Determine label based on value
-  const getLabel = (val: number) => {
-    if (val < 25) return 'Extreme Fear';
-    if (val < 45) return 'Fear';
-    if (val < 55) return 'Neutral';
-    if (val < 75) return 'Greed';
-    return 'Extreme Greed';
-  };
-
-  const color = getColor(displayValue);
-  const label = getLabel(displayValue);
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (displayValue / 100) * circumference;
-  const angle = (displayValue / 100) * 180 - 90; // Convert to degrees for needle
+  if (!data) return null;
+  const score = parseInt(data.value) || 50;
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="relative" style={{ width: radius * 2 + 40, height: radius + 80 }}>
-        <svg
-          width={radius * 2 + 40}
-          height={radius + 80}
-          className="drop-shadow-lg"
-        >
-          {/* Gauge background */}
-          <circle
-            cx={radius + 20}
-            cy={radius + 20}
-            r={radius}
-            fill="none"
-            stroke="oklch(0.15 0 0)"
-            strokeWidth={strokeWidth}
-          />
+    <div className="p-6 rounded-2xl border border-border bg-card flex flex-col justify-between h-full">
+      <div>
+        <div className="flex justify-between items-center mb-6">
+          <h3 className="font-serif font-bold text-xl text-foreground tracking-wide">Fear & Greed Sentiment</h3>
+          <span className="text-xs font-mono px-2 py-1 bg-primary/10 rounded-md text-primary border border-primary/20">Live API Feed</span>
+        </div>
 
-          {/* Gauge progress */}
-          <motion.circle
-            cx={radius + 20}
-            cy={radius + 20}
-            r={radius}
-            fill="none"
-            stroke={color}
-            strokeWidth={strokeWidth}
-            strokeDasharray={circumference}
-            strokeDashoffset={circumference}
-            strokeLinecap="round"
-            animate={{ strokeDashoffset }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            style={{ transformOrigin: `${radius + 20}px ${radius + 20}px` }}
-            transform="rotate(-90deg)"
-          />
+        <div className="space-y-4">
+          <div className="flex justify-between items-end">
+            <div>
+              <span className="text-xs uppercase font-mono tracking-wider text-muted-foreground">Current State</span>
+              <div className="text-2xl font-serif font-bold text-foreground mt-0.5">{data.value_classification}</div>
+            </div>
+            <div className="text-right">
+              <span className="text-xs uppercase font-mono tracking-wider text-muted-foreground">Score</span>
+              <div className="text-4xl font-mono font-black text-primary">{score}<span className="text-sm font-normal text-muted-foreground">/100</span></div>
+            </div>
+          </div>
 
-          {/* Needle */}
-          <motion.line
-            x1={radius + 20}
-            y1={radius + 20}
-            x2={radius + 20 + radius * 0.7 * Math.cos((angle * Math.PI) / 180)}
-            y2={radius + 20 + radius * 0.7 * Math.sin((angle * Math.PI) / 180)}
-            stroke={color}
-            strokeWidth={3}
-            strokeLinecap="round"
-            animate={{ rotate: angle }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            style={{ transformOrigin: `${radius + 20}px ${radius + 20}px` }}
-          />
-
-          {/* Center dot */}
-          <circle
-            cx={radius + 20}
-            cy={radius + 20}
-            r={6}
-            fill={color}
-          />
-
-          {/* Labels around gauge */}
-          <text x={20} y={35} fill="oklch(0.6 0 0)" fontSize="12" textAnchor="start">
-            0
-          </text>
-          <text x={radius * 2 + 20} y={35} fill="oklch(0.6 0 0)" fontSize="12" textAnchor="end">
-            100
-          </text>
-        </svg>
+          {/* Dynamic Progress Indicator Bar */}
+          <div className="w-full bg-muted h-3 rounded-full overflow-hidden relative border border-border/50">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${score}%` }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
+              className="h-full bg-gradient-to-r from-red-500 via-amber-500 to-emerald-500"
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Display Value and Label */}
-      <motion.div className="text-center" animate={{ scale: [1, 1.05, 1] }} transition={{ delay: 0.3 }}>
-        <div className="text-4xl font-serif font-bold text-primary">{displayValue}</div>
-        <div className="text-lg font-medium" style={{ color }}>{label}</div>
-        <p className="text-sm text-muted-foreground mt-2">Market Sentiment Index</p>
-      </motion.div>
+      <p className="text-xs text-muted-foreground mt-6 leading-relaxed border-t border-border/40 pt-4 font-serif italic">
+        "He whose mind is untroubled in the midst of sorrows and free from desire amid pleasures... he is a sage of settled intelligence." — Bhagavad Gita 2.56
+      </p>
     </div>
   );
 }
